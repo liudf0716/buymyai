@@ -38,7 +38,7 @@ export const TrustDashboard: React.FC = () => {
             <ShieldCheck className="w-5 h-5 text-purple-400 shrink-0 mt-0.5 sm:mt-0" />
             <div>
               <p className="text-xs sm:text-sm font-semibold text-white">
-                Upstream 官方开源社区背书：组件 xfrpc 已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）
+                Upstream 官方开源社区背书：三大自研核心套件（apfree-wifidog / xfrpc / xkcptun）均已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）
               </p>
               <p className="text-xs text-slate-400 mt-0.5">
                 经过上游严格代码审查与安全审计；全系统包管理同步迁移至 Alpine APK 3.x，彻底告别 opkg 依赖地狱与变砖风险。

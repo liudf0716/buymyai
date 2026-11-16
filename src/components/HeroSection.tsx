@@ -33,8 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo }) 
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mb-8">
-                chaWrt 开启 AI 路由器新时代：系统所有核心功能与网络流控全面由「小茶 AI 助手」统一调度。原生打通商业门户认证（apfree-wifidog）、OpenWrt 官方收录穿透组件{' '}
-                <code className="font-mono text-[#00f2fe] text-sm">xfrpc</code>、UDP 弱网加速（xkcptun）与 TC-eBPF 智能分流（xdns-bpf），并为极客与企业交付全金属{' '}
+                chaWrt 开启 AI 路由器新时代：系统所有核心功能与网络流控全面由「小茶 AI 助手」统一调度。原生打通商业门户认证（apfree-wifidog）、轻量内网穿透（xfrpc）、网络加速（xkcptun，三者均已入选 OpenWrt 官方库）与 TC-eBPF 智能分流（xdns-bpf），并为极客与企业交付全金属{' '}
                 <strong className="text-white font-semibold">ClawWiFi M3000 v1</strong> 5G 旗舰网关。
               </p>
 
@@ -84,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo }) 
                 <span aria-hidden="true" className="text-slate-600">·</span>
                 <span className="text-slate-200 font-medium">Alpine APK 3.x</span>
                 <span aria-hidden="true" className="text-slate-600">·</span>
-                <span className="text-[#00f2fe] font-medium">OpenWrt 官方收录 xfrpc</span>
+                <span className="text-[#00f2fe] font-medium">OpenWrt 官方收录三大套件</span>
                 <span aria-hidden="true" className="text-slate-600">·</span>
                 <span className="text-emerald-400 font-medium">83 项实机回归 100% 通过</span>
               </div>

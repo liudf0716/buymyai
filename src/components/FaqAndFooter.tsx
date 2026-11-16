@@ -257,7 +257,7 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
               </a>
             </p>
             <p className="font-mono text-slate-500">
-              遵循 GPLv2 / MIT 开源协议分发 · xfrpc 已合并入 OpenWrt 官方库
+              遵循 GPLv2 / MIT 开源协议分发 · apfree-wifidog / xfrpc / xkcptun 均已合并入 OpenWrt 官方库
             </p>
           </div>
         </div>

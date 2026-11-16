@@ -53,7 +53,7 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
   {
     dimension: '出海分流与穿透生态',
     legacy: '用户态 DNS 代理内存开销大；第三方内网穿透缺乏上游安全审计',
-    chawrt: 'xdns-bpf 内核 FNV-1a 零拷贝分流（实测 120MB+ 零丢包）+ xfrpc（OpenWrt 官方收录）',
+    chawrt: 'xdns-bpf 内核 FNV-1a 零拷贝分流 + apfree-wifidog / xfrpc / xkcptun 三大 OpenWrt 官方收录套件',
   },
   {
     dimension: '软件包与固件生态',
@@ -152,14 +152,14 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
   {
     id: 'portal',
     title: '商业级高性能门户认证网关',
-    serviceName: 'apfree-wifidog / wifidogx',
-    tag: '高并发 302 · 内核态线速放行',
+    serviceName: 'apfree-wifidog / wifidogx (OpenWrt 官方收录)',
+    tag: '官方 Upstream 收录 · 内核态线速放行',
     metric: '361.2 req/s 瞬时并发 (平均 53.7ms)',
-    techStack: '纯 C 语言 · epoll/libevent 事件驱动 · 内核快速旁路',
+    techStack: '纯 C 语言 · epoll 驱动 · OpenWrt 官方软件源',
     copilotCommand: '“小茶，把客厅电视和访客平板加入免认证白名单，并查看当前在线认证人数”',
     description:
-      '彻底解决老旧版 wifidog 频繁出现的内存泄漏、死锁及高并发丢包痛点。终端认证通过后，后续海量数据包直接在内核态快速匹配放行，不走慢速用户态代理，跑满千兆线速。支持免认证域名、MAC 白名单/黑名单与多角色权限划分。',
-    highlights: ['361.2 req/s 瞬时 302 重定向', '内核态快速放行零损耗', '支持免认证域名与终端黑白名单'],
+      '彻底解决老旧版 wifidog 频繁出现的内存泄漏、死锁及高并发丢包痛点。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。终端认证通过后，后续海量数据包直接在内核态快速匹配放行，不走慢速用户态代理，跑满千兆线速。支持免认证域名、MAC 白名单/黑名单与多角色权限划分。',
+    highlights: ['OpenWrt 官方 Packages Feed 官方收录', '361.2 req/s 瞬时 302 重定向', '内核态快速放行零损耗'],
   },
   {
     id: 'xfrpc',
@@ -176,14 +176,14 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
   {
     id: 'xkcptun',
     title: '弱网抗抖动网络加速与端口跳跃',
-    serviceName: 'xkcptun (UDP 动态跳跃)',
-    tag: '自适应 FEC · 防失联规则池预检',
+    serviceName: 'xkcptun (OpenWrt 官方收录 · 端口跳跃)',
+    tag: '官方 Upstream 收录 · 防失联规则池预检',
     metric: '抗 30%~40% 恶劣丢包 · 吞吐提升 3~5 倍',
-    techStack: '纯 C 重构 KCP · REDIRECT 规则池校验 · 零内存泄漏',
+    techStack: '纯 C 重构 KCP · OpenWrt 官方软件源 · 零内存泄漏',
     copilotCommand: '“小茶，切换网络加速端口，并预检远端 VPS 防火墙规则池放行状态”',
     description:
-      '专门解决蜂窝移动链路与长距离信道抖动带来的剧烈掉速。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，彻底杜绝切端口断网事故。',
-    highlights: ['抗 40% 恶劣高丢包环境', '动态 UDP 端口跳跃抗 QoS', '小茶助手防火墙规则预检防失联'],
+      '专门解决蜂窝移动链路与长距离信道抖动带来的剧烈掉速。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，彻底杜绝切端口断网事故。',
+    highlights: ['OpenWrt 官方 Packages Feed 官方收录', '抗 40% 恶劣高丢包环境', '动态 UDP 端口跳跃抗 QoS'],
   },
   {
     id: 'xdns',
@@ -345,7 +345,7 @@ export const BENCHMARK_TESTS: BenchmarkTestItem[] = [
   {
     id: 'TC-08',
     suite: 'portal',
-    name: 'OpenWrt 官方收录组件 xfrpc 超轻量内网穿透长连接稳定性',
+    name: 'OpenWrt 官方收录套件 (apfree-wifidog / xfrpc / xkcptun) 全功能与长连接稳定性',
     metric: '100% 在线 (0 断链)',
     threshold: '>= 99.9%',
     status: 'PASS',
@@ -546,15 +546,15 @@ export const DOC_GUIDES: DocGuideTab[] = [
   },
   {
     id: 'ebpf-apk',
-    title: 'APK 3.x / PPE / xfrpc',
-    subtitle: '告别 opkg 依赖地狱，实测 OpenWrt 官方收录组件与内核态零拷贝状态',
+    title: 'APK 3.x / PPE / Upstream',
+    subtitle: '告别 opkg 依赖地狱，实测三大 OpenWrt 官方收录套件与内核态零拷贝状态',
     steps: [
       {
         heading: '1. 使用 Alpine APK 3.x 秒级原子管理软件源',
         description:
-          'chaWrt 25.12 全面废除脆弱的 opkg，原生迁移至 Alpine APK 3.x，实现毫秒级依赖图解析与原子事务安装升级，包括已被 OpenWrt 官方源码库正式收录的 xfrpc 穿透客户端。',
+          'chaWrt 25.12 全面废除脆弱的 opkg，原生迁移至 Alpine APK 3.x，实现毫秒级依赖图解析与原子事务安装升级，包括已被 OpenWrt 官方源码库正式收录的 apfree-wifidog、xfrpc 与 xkcptun 核心套件。',
         code: `apk update
-apk add xfrpc aw-bpf-cli tcpdump
+apk add apfree-wifidog xfrpc xkcptun aw-bpf-cli
 apk upgrade --available`,
       },
       {
@@ -588,7 +588,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: '为什么放弃传统的 opkg 而全面采用 Alpine APK 3.x？',
-    a: '传统 opkg 在升级内核模块或底层库时极易产生依赖断裂甚至变砖。chaWrt 25.12 全面采用 Alpine APK 3.x 原子事务包管理器，安装速度提升数倍且升级安全可回滚；自研穿透组件 xfrpc 也已通过严格审查正式合并入 OpenWrt 官方 Packages Feed。',
+    a: '传统 opkg 在升级内核模块或底层库时极易产生依赖断裂甚至变砖。chaWrt 25.12 全面采用 Alpine APK 3.x 原子事务包管理器，安装速度提升数倍且升级安全可回滚；自研核心套件 apfree-wifidog、xfrpc、xkcptun 均已通过全球开源社区严格审查正式合并入 OpenWrt 官方 Packages Feed。',
   },
   {
     q: '为什么 ClawWiFi M3000 v1 的价格相比百元家用 Wi-Fi 6 路由器更高？',

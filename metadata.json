@@ -1,6 +1,6 @@
 {
   "name": "极客特惠服务商城 - X Premium & Google AI Pro 充值中心",
-  "description": "chaWrt 开源智能路由器系统 & ClawWiFi M3000 v1 5G 工业级移动网关官网 (buymyai.ai.studio)：基于 Linux 6.12 LTS 与内核级 eBPF，83 项自动化测试 100% 通过，集成 DeepSeek 小茶 AI Copilot、OpenWrt 官方收录组件 xfrpc 与 Alpine APK 3.x。",
+  "description": "chaWrt 开源智能路由器系统 & ClawWiFi M3000 v1 5G 工业级移动网关官网 (buymyai.ai.studio)：基于 Linux 6.12 LTS 与内核级 eBPF，83 项自动化测试 100% 通过，集成 DeepSeek 小茶 AI Copilot、OpenWrt 官方收录三大套件 (apfree-wifidog / xfrpc / xkcptun) 与 Alpine APK 3.x。",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

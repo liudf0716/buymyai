@@ -299,7 +299,7 @@ export const TechFeaturesBento: React.FC = () => {
                   <span className="text-xs font-mono text-purple-400">彻底告别 opkg 依赖地狱</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  彻底废除老旧脆弱的 opkg，原生采用 Alpine APK 3.0.5 软件源与独立 Feed 架构。实现秒级依赖图解析与原子事务安装升级，从根本上杜绝升级变砖；同时自研组件 xfrpc 已并入 OpenWrt 官方软件包库。
+                  彻底废除老旧脆弱的 opkg，原生采用 Alpine APK 3.0.5 软件源与独立 Feed 架构。实现秒级依赖图解析与原子事务安装升级，从根本上杜绝升级变砖；同时自研核心组件 apfree-wifidog、xfrpc、xkcptun 均已并入 OpenWrt 官方软件包库。
                 </p>
               </div>
 
@@ -310,7 +310,7 @@ export const TechFeaturesBento: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-400">官方生态背书</p>
-                  <p className="text-sm font-semibold text-emerald-400 mt-1">OpenWrt 官方收录</p>
+                  <p className="text-sm font-semibold text-emerald-400 mt-1">三大套件入选 OpenWrt 官方库</p>
                 </div>
               </div>
             </div>
