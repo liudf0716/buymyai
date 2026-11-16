@@ -28,13 +28,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#0f172a]/90 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
-        {/* Zone 1: Single clean wordmark */}
+        {/* Zone 1: Single clean wordmark with official chaWrt logo */}
         <a
           href="#top"
           onClick={(e) => handleLinkClick(e, 'top')}
-          className="font-display text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe] rounded"
+          className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe] rounded group"
         >
-          chaWrt
+          <img
+            src="/favicon.svg"
+            alt="chaWrt Logo"
+            className="w-7 h-7 rounded-lg shadow-sm shadow-teal-500/30 group-hover:scale-105 transition-transform"
+          />
+          <span className="tracking-tight">chaWrt</span>
         </a>
 
         {/* Zone 2: 5 clean single-line navigation links */}

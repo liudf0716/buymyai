@@ -91,9 +91,14 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
                   e.preventDefault();
                   onScrollTo('top');
                 }}
-                className="font-display text-lg font-bold text-white inline-block"
+                className="flex items-center gap-2.5 font-display text-lg font-bold text-white group"
               >
-                chaWrt &amp; ClawWiFi
+                <img
+                  src="/favicon.svg"
+                  alt="chaWrt Logo"
+                  className="w-7 h-7 rounded-lg shadow-sm shadow-teal-500/30 group-hover:scale-105 transition-transform"
+                />
+                <span>chaWrt &amp; ClawWiFi</span>
               </a>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
                 基于 Linux 6.12 LTS、内核级 eBPF 与 DeepSeek 小茶助手打造的下一代开源智能路由器系统，与 ClawWiFi M3000 v1 5G 工业级移动网关协同构建完整产品矩阵。
