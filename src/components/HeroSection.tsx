@@ -169,6 +169,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo }) 
                   {activeScenario.terminalOutput}
                 </pre>
               </div>
+
+              <div className="pt-1 flex items-center justify-between text-xs font-mono">
+                <span className="text-slate-400">💡 原生 LuCI AI 运维控制台</span>
+                <a
+                  href="#copilot-video"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollTo('copilot-video');
+                  }}
+                  className="inline-flex items-center gap-1.5 text-[#00f2fe] hover:underline cursor-pointer"
+                >
+                  <Video className="w-3.5 h-3.5" />
+                  <span>观看小茶助手 3 分钟实操录屏 &rarr;</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu } from 'lucide-react';
+import { Cpu, Terminal, Sparkles, Video, Play } from 'lucide-react';
 import ebpfArchImg from '../assets/images/chawrt_ebpf_architecture_1794710240032.jpg';
 
 export const TechFeaturesBento: React.FC = () => {
@@ -7,8 +7,9 @@ export const TechFeaturesBento: React.FC = () => {
 
   return (
     <section id="features" className="py-16 px-4 sm:px-6 border-b border-slate-800/80">
-      <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl mb-10">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Section Heading */}
+        <div className="max-w-3xl">
           <p className="text-xs font-mono text-[#00f2fe] mb-2">核心技术特性深潜 · Deep Dive</p>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
             小茶 AI Copilot 杀手级实装、PPE 硬加速与 OpenWrt 官方生态背书
@@ -24,8 +25,9 @@ export const TechFeaturesBento: React.FC = () => {
           <div className="lg:col-span-2 bg-[#111b2e]/85 backdrop-blur-sm border border-cyan-500/25 rounded-xl p-6 sm:p-7 flex flex-col justify-between gap-5">
             <div>
               <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                <h3 className="font-display text-lg sm:text-xl font-bold text-white">
-                  01. 小茶 AI 助手 (ClawWRT Copilot) · 4 大独家杀手级能力
+                <h3 className="font-display text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-[#00f2fe]" />
+                  <span>01. 小茶 AI 助手 (ClawWRT Copilot) · 4 大独家杀手级能力</span>
                 </h3>
                 <span className="text-xs font-mono text-[#00f2fe] shrink-0">
                   DeepSeek Agent + 沙箱防失联
@@ -186,6 +188,69 @@ export const TechFeaturesBento: React.FC = () => {
               <span>802.11k/v/r 快速切换</span>
               <span>·</span>
               <span>802.11s 无线 Mesh 扩展</span>
+            </div>
+          </div>
+        </div>
+
+        {/* XiaoCha Copilot Dedicated Video Player Showcase */}
+        <div id="copilot-video" className="bg-[#111b2e]/95 border border-cyan-500/35 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="p-5 sm:p-6 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-slate-900 to-[#111b2e]">
+            <div>
+              <p className="text-xs font-mono text-[#00f2fe] mb-1 flex items-center gap-1.5">
+                <Video className="w-3.5 h-3.5" />
+                <span>实机真实操作录屏 · LuCI 控制台原生交互</span>
+              </p>
+              <h3 className="font-display text-lg sm:text-xl font-bold text-white">
+                小茶 AI 助手 (ClawWRT Copilot) 真实操作与智能运维全流程录屏
+              </h3>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-mono text-slate-300 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-800 shrink-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>3 分钟高清实操演示 · 720P HD</span>
+            </div>
+          </div>
+
+          <div className="relative aspect-video max-h-[580px] bg-[#040814] flex items-center justify-center">
+            <video
+              src="/videos/xiaoca_copilot_demo.mp4"
+              controls
+              playsInline
+              className="w-full h-full object-contain"
+            />
+          </div>
+
+          <div className="p-5 bg-[#0d1525] border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div className="space-y-1">
+              <p className="font-mono text-[#00f2fe] font-semibold flex items-center gap-1">
+                <span>💬 1. 自然语言交互排障</span>
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                无需记背复杂 UCI 与 iptables 命令，直接用中文询问蹭网、测延迟、查谁在占用大流量。
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-mono text-purple-400 font-semibold flex items-center gap-1">
+                <span>🚀 2. VPS 两端加速自动联调</span>
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                一键完成远端 VPS 鉴权公钥注入、加速服务端部署与防火墙 REDIRECT 端口池预检。
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-mono text-emerald-400 font-semibold flex items-center gap-1">
+                <span>🌡️ 3. 硬件各芯片温度遥测</span>
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                调用 <code className="font-mono text-[#00f2fe]">get_temperature</code> 实时读取 MT7981 CPU 及双频射频传感器并做健康预警。
+              </p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-mono text-sky-400 font-semibold flex items-center gap-1">
+                <span>🛡️ 4. 安全基线扫描与 60s 自愈</span>
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                全盘检测 WAN 口暴露风险与 SSRF 攻击，高危配置修改具备 60 秒失联自动回滚机制。
+              </p>
             </div>
           </div>
         </div>
