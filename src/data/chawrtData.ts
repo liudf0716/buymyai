@@ -130,6 +130,75 @@ export interface HardwareSpecItem {
   detail: string;
 }
 
+export interface HardwareSpecItem {
+  label: string;
+  spec: string;
+  detail: string;
+}
+
+export interface CoreServiceItem {
+  id: 'portal' | 'xfrpc' | 'xkcptun' | 'xdns';
+  title: string;
+  serviceName: string;
+  tag: string;
+  metric: string;
+  techStack: string;
+  copilotCommand: string;
+  description: string;
+  highlights: string[];
+}
+
+export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
+  {
+    id: 'portal',
+    title: '商业级高性能门户认证网关',
+    serviceName: 'apfree-wifidog / wifidogx',
+    tag: '高并发 302 · 内核态线速放行',
+    metric: '361.2 req/s 瞬时并发 (平均 53.7ms)',
+    techStack: '纯 C 语言 · epoll/libevent 事件驱动 · 内核快速旁路',
+    copilotCommand: '“小茶，把客厅电视和访客平板加入免认证白名单，并查看当前在线认证人数”',
+    description:
+      '彻底解决老旧版 wifidog 频繁出现的内存泄漏、死锁及高并发丢包痛点。终端认证通过后，后续海量数据包直接在内核态快速匹配放行，不走慢速用户态代理，跑满千兆线速。支持免认证域名、MAC 白名单/黑名单与多角色权限划分。',
+    highlights: ['361.2 req/s 瞬时 302 重定向', '内核态快速放行零损耗', '支持免认证域名与终端黑白名单'],
+  },
+  {
+    id: 'xfrpc',
+    title: '超轻量级纯 C 内网穿透服务',
+    serviceName: 'xfrpc (OpenWrt 官方收录)',
+    tag: '官方 Upstream 收录 · 内存仅 2.2MB',
+    metric: '2.2MB VmRSS (相比 Go 版降低 95%)',
+    techStack: '纯 C 语言 · 非阻塞状态机 · OpenWrt 官方软件源',
+    copilotCommand: '“小茶，帮我添加一条 5000 端口的 TCP 穿透映射到群晖 NAS，展示公网直达地址”',
+    description:
+      '针对 4G/5G 蜂窝网络与无公网 IP 宽带环境，在嵌入式硬件上以不足 2.2MB 的极低内存开销实现坚如磐石的长连接穿透。代码质量经全球开源社区严苛审查，已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed），7×24 小时基站频繁切换不掉线。',
+    highlights: ['OpenWrt 官方 Packages Feed 官方收录', '内存常驻 < 2.2MB (Go版需 60MB+)', '毫秒级自动重连状态机'],
+  },
+  {
+    id: 'xkcptun',
+    title: '弱网抗抖动网络加速与端口跳跃',
+    serviceName: 'xkcptun (UDP 动态跳跃)',
+    tag: '自适应 FEC · 防失联规则池预检',
+    metric: '抗 30%~40% 恶劣丢包 · 吞吐提升 3~5 倍',
+    techStack: '纯 C 重构 KCP · REDIRECT 规则池校验 · 零内存泄漏',
+    copilotCommand: '“小茶，切换网络加速端口，并预检远端 VPS 防火墙规则池放行状态”',
+    description:
+      '专门解决蜂窝移动链路与长距离信道抖动带来的剧烈掉速。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，彻底杜绝切端口断网事故。',
+    highlights: ['抗 40% 恶劣高丢包环境', '动态 UDP 端口跳跃抗 QoS', '小茶助手防火墙规则预检防失联'],
+  },
+  {
+    id: 'xdns',
+    title: '内核级 TC-eBPF 智能策略分流',
+    serviceName: 'xdns-bpf (FNV-1a 极速哈希)',
+    tag: 'TC-eBPF 零拷贝 · 毫秒级 Map 绑定',
+    metric: '累计分流超 1.2 亿字节 (120MB+) · 0 丢包',
+    techStack: 'Linux TC-eBPF · FNV-1a 首包哈希 · 内核态 Map 动态下刷',
+    copilotCommand: '“小茶，查看出海链路实时分流统计，展示已接管连接数与累计转发流量”',
+    description:
+      '当 4G/5G 蜂窝遭遇有线光纤，或国内与出海双宽带多出口调度时，基于纯 C 编写的 TC-eBPF 内核调度引擎与 FNV-1a 极速哈希决策树进行首包识别，动态将解析 IP 下刷至内核 eBPF Map，实现国内/海外双出口秒级精准导航，防污染无损零拷贝分流。',
+    highlights: ['首包 FNV-1a 极速哈希决策', '内核 eBPF Map 动态热重载', '实机累计分流 1.2 亿字节 0 丢包'],
+  },
+];
+
 export const M3000_HARDWARE_SPECS: HardwareSpecItem[] = [
   {
     label: '蜂窝网络通信 (5G + Dual SIM)',

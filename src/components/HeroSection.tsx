@@ -29,12 +29,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo }) 
               </p>
 
               <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold text-white tracking-tight leading-[1.18] mb-5">
-                下一代智能路由器系统：Linux 6.12、内核级 eBPF 与 5G 工业移动网关
+                AI-Native 智能路由器系统：以「小茶 AI 助手」为超级中枢，驱动四大自研网络服务
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mb-8">
-                集成 DeepSeek「小茶助手」AI Copilot、MediaTek PPE 硬件全线速与 OpenWrt 官方收录组件{' '}
-                <code className="font-mono text-[#00f2fe] text-sm">xfrpc</code>。为极客提供纯正开源固件，为商用与移动场景交付全金属{' '}
+                chaWrt 开启 AI 路由器新时代：系统所有核心功能与网络流控全面由「小茶 AI 助手」统一调度。原生打通商业门户认证（apfree-wifidog）、OpenWrt 官方收录穿透组件{' '}
+                <code className="font-mono text-[#00f2fe] text-sm">xfrpc</code>、UDP 弱网加速（xkcptun）与 TC-eBPF 智能分流（xdns-bpf），并为极客与企业交付全金属{' '}
                 <strong className="text-white font-semibold">ClawWiFi M3000 v1</strong> 5G 旗舰网关。
               </p>
 
