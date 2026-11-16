@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Plus Jakarta Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    text-wrap: balance;
+  }
+
+  code, pre, .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
