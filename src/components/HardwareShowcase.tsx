@@ -6,7 +6,7 @@ import {
   ShieldCheck,
   Copy,
   X,
-  Cpu,
+  Play,
   Truck,
   Coffee,
   Factory,
@@ -16,26 +16,63 @@ import {
   M3000_HARDWARE_SPECS,
   SiteConfig,
 } from '../data/chawrtData';
-import m3000HeroImg from '../assets/images/clawi_m3000_industrial_hero_1794829758507.jpg';
-import m3000PortsImg from '../assets/images/clawi_m3000_industrial_ports_1794829759959.jpg';
+import m3000FrontImg from '../assets/images/m3000_front.png';
+import m3000PortsImg from '../assets/images/m3000_ports.png';
+import m3000SideImg from '../assets/images/m3000_side.png';
+import m3000IsoImg from '../assets/images/m3000_iso.png';
+import m3000InnerImg from '../assets/images/m3000_inner.png';
+import qqGroupQrImg from '../assets/images/qq-group.jpg';
 
 interface HardwareShowcaseProps {
   config: SiteConfig;
   onCopy: (text: string, label: string) => void;
 }
 
+type GalleryView = 'video' | 'front' | 'ports' | 'side' | 'iso' | 'inner';
+
+interface GalleryTabItem {
+  id: GalleryView;
+  label: string;
+  tag: string;
+}
+
+const GALLERY_TABS: GalleryTabItem[] = [
+  { id: 'video', label: '🎥 3D 展机视频', tag: '旋转动态' },
+  { id: 'front', label: '📸 CNC 全金属整机', tag: '正面散热' },
+  { id: 'ports', label: '🔌 5×千兆/串口面板', tag: 'RS232/485' },
+  { id: 'side', label: '📶 高通 5G 双 SIM', tag: '双卡热备' },
+  { id: 'iso', label: '📐 3D 轴测立体', tag: '工控身型' },
+  { id: 'inner', label: '🔬 核心主板拆解', tag: 'PCB实拍' },
+];
+
 export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCopy }) => {
-  const [galleryView, setGalleryView] = useState<'front' | 'ports'>('front');
-  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+  const [galleryView, setGalleryView] = useState<GalleryView>('video');
   const [showOrderModal, setShowOrderModal] = useState(false);
 
-  const currentImgSrc = galleryView === 'front' ? m3000HeroImg : m3000PortsImg;
+  const getImageSrc = (view: GalleryView) => {
+    switch (view) {
+      case 'front':
+        return m3000FrontImg;
+      case 'ports':
+        return m3000PortsImg;
+      case 'side':
+        return m3000SideImg;
+      case 'iso':
+        return m3000IsoImg;
+      case 'inner':
+        return m3000InnerImg;
+      default:
+        return m3000FrontImg;
+    }
+  };
 
   const renderScenarioIcon = (name: 'van' | 'coffee' | 'factory') => {
     if (name === 'van') return <Truck className="w-5 h-5 text-[#00f2fe] shrink-0" />;
     if (name === 'coffee') return <Coffee className="w-5 h-5 text-emerald-400 shrink-0" />;
     return <Factory className="w-5 h-5 text-purple-400 shrink-0" />;
   };
+
+  const currentTab = GALLERY_TABS.find((t) => t.id === galleryView);
 
   return (
     <section id="hardware" className="py-16 px-4 sm:px-6 border-b border-slate-800/80 bg-[#0b1220]/70">
@@ -55,62 +92,61 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
 
         {/* Main Gallery + Industrial Hardware Spec Matrix */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-10">
-          {/* Left: Industrial Hardware Gallery Switcher */}
+          {/* Left: Industrial Hardware Multi-View Gallery Switcher */}
           <div className="lg:col-span-6 flex flex-col bg-[#111b2e]/90 border border-cyan-500/25 rounded-xl overflow-hidden">
-            <div className="aspect-[4/3] bg-[#090e1a] relative overflow-hidden border-b border-slate-800 flex-1">
-              {!imgErrors[galleryView] ? (
-                <img
-                  src={currentImgSrc}
-                  alt={
-                    galleryView === 'front'
-                      ? 'ClawWiFi M3000 v1 5G 工业级移动网关 CNC 全金属整机图'
-                      : 'ClawWiFi M3000 v1 工业背板：5×千兆网口、2×RS232、RS485、双 SIM 卡与 DC 12-65V'
-                  }
-                  referrerPolicy="no-referrer"
-                  onError={() => setImgErrors((prev) => ({ ...prev, [galleryView]: true }))}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center">
-                  <Cpu className="w-12 h-12 text-[#00f2fe] mb-3" />
-                  <p className="text-sm font-semibold text-white">
-                    ClawWiFi M3000 v1 · CNC 全金属 5G 移动网关
-                  </p>
-                  <p className="text-xs text-slate-400 mt-1">
-                    130×80×33 mm · 双 SIM 5G + RS232/RS485 + DC 12-65V
-                  </p>
+            <div className="aspect-[4/3] bg-[#040814] relative overflow-hidden border-b border-slate-800 flex items-center justify-center p-3">
+              {galleryView === 'video' ? (
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <video
+                    key="hw-video"
+                    src="/videos/hardware_showcase.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain"
+                  />
+                  <div className="absolute top-3 left-3 px-2 py-1 rounded bg-black/60 backdrop-blur-sm border border-cyan-500/40 text-[10px] font-mono text-[#00f2fe] flex items-center gap-1.5">
+                    <Play className="w-2.5 h-2.5 fill-current" />
+                    <span>360° 实物 3D 展机视频</span>
+                  </div>
                 </div>
+              ) : (
+                <img
+                  key={galleryView}
+                  src={getImageSrc(galleryView)}
+                  alt={`ClawWiFi M3000 v1 5G 工业级移动网关 - ${currentTab?.label}`}
+                  className="w-full h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] transition-all duration-300"
+                />
               )}
             </div>
 
-            <div className="p-4 flex flex-wrap items-center justify-between gap-3 bg-[#0f172a]">
-              <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800">
-                <button
-                  type="button"
-                  onClick={() => setGalleryView('front')}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-                    galleryView === 'front'
-                      ? 'bg-[#00f2fe]/15 text-[#00f2fe] border border-cyan-400/40'
-                      : 'text-slate-400 hover:text-slate-200 border border-transparent'
-                  }`}
-                >
-                  CNC 全金属整机
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setGalleryView('ports')}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-                    galleryView === 'ports'
-                      ? 'bg-[#00f2fe]/15 text-[#00f2fe] border border-cyan-400/40'
-                      : 'text-slate-400 hover:text-slate-200 border border-transparent'
-                  }`}
-                >
-                  工业串口 &amp; 双 SIM 面板
-                </button>
+            {/* 6 Interactive Perspective Tabs */}
+            <div className="p-3 bg-[#0f172a] border-t border-slate-800/80">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+                {GALLERY_TABS.map((tab) => {
+                  const isActive = galleryView === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setGalleryView(tab.id)}
+                      className={`px-2 py-1.5 text-[11px] font-medium rounded-lg transition-all text-center flex flex-col items-center justify-center gap-0.5 cursor-pointer ${
+                        isActive
+                          ? 'bg-[#00f2fe]/15 text-[#00f2fe] border border-cyan-400/50 shadow-sm'
+                          : 'bg-slate-900/60 text-slate-400 hover:text-slate-200 border border-slate-800'
+                      }`}
+                    >
+                      <span className="whitespace-nowrap font-medium">{tab.label}</span>
+                      <span className="text-[9px] font-mono opacity-75">{tab.tag}</span>
+                    </button>
+                  );
+                })}
               </div>
-              <span className="text-[11px] font-mono text-slate-400 tabular-nums">
-                尺寸 130×80×33 mm · 无风扇被动散热
-              </span>
+              <div className="mt-2.5 pt-2 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-400 px-1">
+                <span>尺寸 130×80×33 mm · 无风扇全铝合金被动散热</span>
+                <span className="text-[#00f2fe]">{currentTab?.label}</span>
+              </div>
             </div>
           </div>
 
@@ -128,7 +164,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
 
               <div className="divide-y divide-slate-800/80 border-t border-b border-slate-800/80">
                 {M3000_HARDWARE_SPECS.map((item) => (
-                  <div key={item.label} className="py-3 space-y-1">
+                  <div key={item.label} className="py-2.5 space-y-0.5">
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
                       <span className="text-xs font-mono text-[#00f2fe]">{item.label}</span>
                       <span className="text-xs font-mono font-semibold text-white tabular-nums">
@@ -154,32 +190,30 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
 
             {/* Prominent Channel A Conversion Actions */}
             <div className="flex flex-wrap items-center gap-2.5 pt-2">
-              <a
-                href={config.taobaoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#00f2fe] hover:bg-sky-300 text-slate-950 text-xs font-bold transition-colors whitespace-nowrap"
+              <button
+                type="button"
+                onClick={() => setShowOrderModal(true)}
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#00f2fe] hover:bg-sky-300 text-slate-950 text-xs font-bold transition-colors cursor-pointer whitespace-nowrap"
               >
                 <ShoppingBag className="w-3.5 h-3.5" />
-                <span>官方淘宝店铺</span>
+                <span>选购官方 M3000 硬件</span>
                 <ExternalLink className="w-3 h-3" />
-              </a>
-              <a
-                href={config.xianyuUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors whitespace-nowrap"
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowOrderModal(true)}
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap"
               >
-                <span>闲鱼直营通道</span>
+                <span>现货与极客直营通道</span>
                 <ExternalLink className="w-3 h-3" />
-              </a>
+              </button>
               <button
                 type="button"
                 onClick={() => setShowOrderModal(true)}
                 className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg border border-purple-500/50 hover:border-purple-400 bg-[#0b1220] hover:bg-slate-800 text-slate-100 text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
-                <span>企业批量采购咨询</span>
+                <span>企业批量采购与开票</span>
               </button>
             </div>
           </div>
@@ -222,19 +256,22 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
       {/* Hardware Enterprise & Direct Consultation Modal */}
       {showOrderModal && (
         <div
-          className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="hardware-order-title"
         >
-          <div className="bg-[#111b2e] border border-cyan-500/30 rounded-xl w-full max-w-lg p-6 shadow-2xl">
+          <div className="bg-[#111b2e] border border-cyan-500/35 rounded-2xl w-full max-w-lg p-6 shadow-2xl relative animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-5">
               <div>
-                <h3 id="hardware-order-title" className="font-display text-lg font-bold text-white">
-                  ClawWiFi M3000 v1 购买与企业批量采购咨询
+                <h3 id="hardware-order-title" className="font-display text-lg font-bold text-white flex items-center gap-2">
+                  <span>ClawWiFi M3000 v1 选购与定制咨询</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    现货发售
+                  </span>
                 </h3>
-                <p className="text-xs text-slate-400 mt-0.5">
-                  全金属 5G 工业移动网关 · 1 年官方质保 + 终身 OTA + 7×24 售后
+                <p className="text-xs text-slate-400 mt-1">
+                  高通 5G SA/NSA 双卡双待 · 5×千兆 + RS232/RS485 · 1 年质保 + 终身 OTA
                 </p>
               </div>
               <button
@@ -248,6 +285,36 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
             </div>
 
             <div className="space-y-4">
+              {/* Scan QQ Group to connect */}
+              <div className="bg-[#0b1220] border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                <div className="bg-white p-2 rounded-lg shrink-0">
+                  <img
+                    src={qqGroupQrImg}
+                    alt="官方技术交流 QQ 群二维码"
+                    className="w-28 h-28 object-contain"
+                  />
+                </div>
+                <div className="space-y-2 flex-1">
+                  <p className="text-xs font-semibold text-white">
+                    官方直通技术交流与售后服务群
+                  </p>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    群号：<strong className="font-mono text-[#00f2fe]">{config.qqGroup}</strong>
+                    <br />
+                    入群可直联核心作者，获取 M3000 v1 专属购买折扣、企业增票采购清单与 xfrpc 穿透预配置协助。
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => onCopy(config.qqGroup, '已复制官方技术交流 QQ 群号')}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition-colors cursor-pointer"
+                  >
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>一键复制群号</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Direct e-commerce links */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
                   href={config.taobaoUrl}
@@ -255,8 +322,11 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                   rel="noreferrer"
                   className="flex items-center justify-between px-4 py-3 rounded-lg bg-[#0b1220] border border-slate-800 hover:border-[#00f2fe]/60 text-xs font-semibold text-white transition-colors"
                 >
-                  <span>官方淘宝店铺下单</span>
-                  <ExternalLink className="w-4 h-4 text-[#00f2fe] shrink-0" />
+                  <span className="flex items-center gap-2">
+                    <ShoppingBag className="w-4 h-4 text-[#00f2fe]" />
+                    <span>官方淘宝店铺</span>
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
                 </a>
                 <a
                   href={config.xianyuUrl}
@@ -264,33 +334,16 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                   rel="noreferrer"
                   className="flex items-center justify-between px-4 py-3 rounded-lg bg-[#0b1220] border border-slate-800 hover:border-emerald-500/60 text-xs font-semibold text-white transition-colors"
                 >
-                  <span>闲鱼直营通道下单</span>
-                  <ExternalLink className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    <span>闲鱼极客直营</span>
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
                 </a>
               </div>
 
-              <div className="bg-[#0b1220] border border-slate-800 rounded-lg p-4 space-y-3">
-                <div className="flex items-center justify-between gap-2">
-                  <div>
-                    <p className="text-xs font-semibold text-white flex items-center gap-1.5">
-                      <MessageSquare className="w-4 h-4 text-[#00f2fe]" />
-                      <span>企业批量采购 / 商业门店组网 / 工控 PLC 定制</span>
-                    </p>
-                    <p className="text-xs text-slate-400 mt-1">
-                      加入官方技术交流 QQ 群：
-                      <span className="font-mono text-white font-semibold">{config.qqGroup}</span>
-                      （提供 xfrpc 穿透预配、Portal 定制与批量报价）
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => onCopy(config.qqGroup, '已复制官方技术交流 QQ 群号')}
-                    className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 shrink-0"
-                  >
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>复制群号</span>
-                  </button>
-                </div>
+              <div className="text-[11px] text-slate-400 text-center leading-relaxed">
+                💡 提供增值税专用发票 · 批量 10 台以上支持企业 Portal 认证界面与专属 VPN 预烧录定制
               </div>
             </div>
           </div>

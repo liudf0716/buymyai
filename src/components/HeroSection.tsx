@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Download, Cpu, Terminal, ShieldCheck } from 'lucide-react';
 import { COPILOT_SCENARIOS, SiteConfig } from '../data/chawrtData';
-import m3000HeroImg from '../assets/images/regenerated_image_1794830257281.png';
+import m3000HeroImg from '../assets/images/m3000_front.png';
 
 interface HeroSectionProps {
   config: SiteConfig;

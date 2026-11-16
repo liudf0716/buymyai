@@ -8,6 +8,7 @@ import {
   Globe,
 } from 'lucide-react';
 import { FAQ_ITEMS, SiteConfig } from '../data/chawrtData';
+import qqGroupQrImg from '../assets/images/qq-group.jpg';
 
 interface FaqAndFooterProps {
   config: SiteConfig;
@@ -288,9 +289,8 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
             <div className="space-y-4 text-center">
               <div className="bg-white p-3 rounded-xl inline-block">
                 <img
-                  src={config.qqGroupQrUrl}
+                  src={qqGroupQrImg}
                   alt="chaWrt 官方技术交流 QQ 群二维码"
-                  referrerPolicy="no-referrer"
                   className="w-48 h-48 object-contain"
                 />
               </div>
