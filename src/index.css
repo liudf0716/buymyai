@@ -7,9 +7,10 @@
     background-color: #0f172a;
     color: #f1f5f9;
     font-family: "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    scroll-behavior: smooth;
   }
 
-  h1, h2, h3, .font-display {
+  h1, h2, h3, h4, .font-display {
     font-family: "Plus Jakarta Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
     text-wrap: balance;
   }
@@ -21,6 +22,37 @@
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+/* Subtle engineering grid backdrop */
+.bg-engineering-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 41, 59, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 41, 59, 0.35) 1px, transparent 1px);
+}
+
+.bg-hero-glow {
+  background: radial-gradient(circle at 75% 25%, rgba(0, 242, 254, 0.08) 0%, rgba(168, 85, 247, 0.05) 38%, transparent 70%);
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
 
 @media (prefers-reduced-motion: reduce) {

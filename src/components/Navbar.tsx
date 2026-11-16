@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate?: (id: string) => void;
@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { id: 'hardware', label: 'M3000 5G 网关' },
   { id: 'benchmarks', label: '83项测试报告' },
   { id: 'downloads', label: '固件下载' },
+  { id: 'docs', label: '知识库' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
@@ -27,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#0f172a]/90 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-6">
         {/* Zone 1: Single clean wordmark with official chaWrt logo */}
         <a
           href="#top"
@@ -37,19 +38,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           <img
             src="/favicon.svg"
             alt="chaWrt Logo"
-            className="w-7 h-7 rounded-lg shadow-sm shadow-teal-500/30 group-hover:scale-105 transition-transform"
+            className="w-7 h-7 rounded-lg shadow-sm shadow-cyan-500/20 group-hover:scale-105 transition-transform"
           />
           <span className="tracking-tight">chaWrt</span>
         </a>
 
-        {/* Zone 2: 5 clean single-line navigation links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        {/* Zone 2: Clean single-line navigation links */}
+        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
           {NAV_LINKS.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleLinkClick(e, item.id)}
-              className="hover:text-white hover:underline underline-offset-4 decoration-[#00f2fe]/80 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe] rounded"
+              className="hover:text-[#00f2fe] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe] rounded py-1"
             >
               {item.label}
             </a>
@@ -61,16 +62,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           <a
             href="#downloads"
             onClick={(e) => handleLinkClick(e, 'downloads')}
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-slate-950 bg-[#00f2fe] hover:bg-sky-300 rounded-lg transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe]"
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-bold text-slate-950 bg-[#00f2fe] hover:bg-sky-300 rounded-lg transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe]"
           >
-            下载固件
+            <Download className="w-3.5 h-3.5" />
+            <span>下载固件</span>
           </a>
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? '关闭导航菜单' : '打开导航菜单'}
             aria-expanded={mobileOpen}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors cursor-pointer"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -79,13 +81,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
       {/* Mobile Menu Drawer */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-slate-800 bg-[#0f172a] px-4 py-4 space-y-2">
+        <div className="lg:hidden border-t border-slate-800 bg-[#0f172a] px-4 py-4 space-y-1.5">
           {NAV_LINKS.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleLinkClick(e, item.id)}
-              className="block py-2.5 px-3 text-sm font-medium text-slate-200 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors"
+              className="block py-2.5 px-3 text-sm font-medium text-slate-200 hover:text-[#00f2fe] hover:bg-slate-800/50 rounded-lg transition-colors"
             >
               {item.label}
             </a>
@@ -93,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           <a
             href="#downloads"
             onClick={(e) => handleLinkClick(e, 'downloads')}
-            className="block w-full text-center mt-2 py-2.5 px-4 text-sm font-semibold text-white bg-sky-600 hover:bg-sky-500 rounded-lg transition-colors"
+            className="block w-full text-center mt-2 py-2.5 px-4 text-sm font-bold text-slate-950 bg-[#00f2fe] hover:bg-sky-300 rounded-lg transition-colors"
           >
             立即下载开源固件
           </a>

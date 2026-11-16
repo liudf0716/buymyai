@@ -59,19 +59,19 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#0f172a] bg-engineering-grid text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Sticky 3-Zone Official Navbar */}
       <Navbar onNavigate={scrollToSection} />
 
       <main>
         {/* Hero + ClawWRT Copilot HUD + Channel A / Channel B Strip */}
-        <HeroSection config={SITE_CONFIG} onScrollTo={scrollToSection} />
+        <HeroSection config={SITE_CONFIG} onScrollTo={scrollToSection} onCopy={handleCopy} />
 
         {/* Legacy OpenWrt vs chaWrt Comparison */}
         <WhyChaWrtSection />
 
-        {/* 6 Core Technical Capabilities + OpenWrt xfrpc Upstream Endorsement */}
-        <TechFeaturesBento />
+        {/* Core Technical Capabilities + XiaoCha Copilot + 4 Core Self-Developed Services */}
+        <TechFeaturesBento onCopy={handleCopy} />
 
         {/* Channel A: ClawWiFi M3000 v1 5G Industrial Mobile Gateway */}
         <HardwareShowcase config={SITE_CONFIG} onCopy={handleCopy} />

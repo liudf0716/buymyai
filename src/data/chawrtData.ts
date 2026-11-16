@@ -130,11 +130,6 @@ export interface HardwareSpecItem {
   detail: string;
 }
 
-export interface HardwareSpecItem {
-  label: string;
-  spec: string;
-  detail: string;
-}
 
 export interface CoreServiceItem {
   id: 'portal' | 'xfrpc' | 'xkcptun' | 'xdns';
