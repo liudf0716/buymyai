@@ -23,7 +23,6 @@ interface TechFeaturesBentoProps {
 
 export const TechFeaturesBento: React.FC<TechFeaturesBentoProps> = ({ onCopy }) => {
   const [archImageError, setArchImageError] = useState(false);
-  const [copilotVideoMissing, setCopilotVideoMissing] = useState(false);
   const [activeReplayIdx, setActiveReplayIdx] = useState(0);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -190,19 +189,19 @@ export const TechFeaturesBento: React.FC<TechFeaturesBentoProps> = ({ onCopy }) 
               </div>
             </div>
 
-            {!copilotVideoMissing ? (
-              <div className="relative aspect-video max-h-[540px] bg-[#040814] flex items-center justify-center">
-                <video
-                  src="/videos/xiaoca_copilot_demo.mp4"
-                  controls
-                  playsInline
-                  onError={() => setCopilotVideoMissing(true)}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            ) : (
-              /* Graceful High-Craft Interactive LuCI Copilot Terminal + Real Video Split when xiaoca_copilot_demo.mp4 is not in /public/videos */
-              <div className="grid grid-cols-1 lg:grid-cols-12 bg-[#070d19]">
+            {/* Dedicated Real Operational Video Player */}
+            <div className="relative aspect-video max-h-[540px] bg-[#040814] flex items-center justify-center border-b border-slate-800">
+              <video
+                src="/videos/xiaoca_copilot_demo.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            {/* Interactive LuCI Copilot Terminal & Scenario Tester */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 bg-[#070d19]">
                 <div className="lg:col-span-5 p-5 sm:p-6 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col justify-between gap-4">
                   <div className="space-y-3">
                     <p className="text-xs font-mono text-slate-400">
@@ -302,7 +301,6 @@ export const TechFeaturesBento: React.FC<TechFeaturesBentoProps> = ({ onCopy }) 
                   </div>
                 </div>
               </div>
-            )}
 
             <div className="p-4 sm:p-5 bg-[#0d1525] border-t border-slate-800 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-3 font-mono">
               <span>
