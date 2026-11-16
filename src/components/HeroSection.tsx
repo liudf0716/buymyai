@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Download, Cpu, Terminal, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Download, Cpu, Terminal, ShieldCheck, Video } from 'lucide-react';
 import { COPILOT_SCENARIOS, SiteConfig } from '../data/chawrtData';
 import m3000HeroImg from '../assets/images/m3000_front.png';
 
@@ -62,6 +62,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo }) 
                   <Download className="w-4 h-4 text-[#00f2fe]" />
                   <span>通道 B：免费下载开源固件</span>
                   <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="#hardware-video"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollTo('hardware-video');
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-slate-700 hover:border-cyan-400/60 bg-slate-900/60 hover:bg-slate-800 text-slate-300 text-sm font-medium transition-colors whitespace-nowrap shrink-0"
+                >
+                  <Video className="w-4 h-4 text-[#00f2fe]" />
+                  <span>实机视频演示</span>
                 </a>
               </div>
             </div>
