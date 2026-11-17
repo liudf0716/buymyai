@@ -146,14 +146,14 @@ export interface CoreServiceItem {
 export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
   {
     id: 'portal',
-    title: '商业级高性能门户认证网关',
+    title: '高性能 Web 门户认证网关',
     serviceName: 'apfree-wifidog / wifidogx (OpenWrt 官方收录)',
     tag: '官方 Upstream 收录 · 内核态线速放行',
     metric: '361.2 req/s 瞬时并发 (平均 53.7ms)',
     techStack: '纯 C 语言 · epoll 驱动 · OpenWrt 官方软件源',
     copilotCommand: '“小茶，把客厅电视和访客平板加入免认证白名单，并查看当前在线认证人数”',
     description:
-      '彻底解决老旧版 wifidog 频繁出现的内存泄漏、死锁及高并发丢包痛点。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。终端认证通过后，后续海量数据包直接在内核态快速匹配放行，不走慢速用户态代理，跑满千兆线速。支持免认证域名、MAC 白名单/黑名单与多角色权限划分。',
+      '彻底解决老旧版 wifidog 频繁出现的内存泄漏、死锁及高并发丢包痛点。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。终端认证通过后，后续海量数据包直接在内核态快速匹配放行，不走慢速用户态代理，跑满千兆线速。支持免认证域名、MAC 白名单/黑名单与多角色权限划分，适合极客工作室、创客空间与家庭访客隔离。',
     highlights: ['OpenWrt 官方 Packages Feed 官方收录', '361.2 req/s 瞬时 302 重定向', '内核态快速放行零损耗'],
   },
   {
@@ -208,7 +208,7 @@ export const M3000_HARDWARE_SPECS: HardwareSpecItem[] = [
   {
     label: '高速有线接口阵列',
     spec: '5 × 全千兆以太网口 (1 WAN + 4 LAN)',
-    detail: '全千兆 RJ45 电口阵列，跑满千兆线速家庭光纤与企业局域网，支持多 LAN 独立划分与 VLAN 隔离。',
+    detail: '全千兆 RJ45 电口阵列，跑满千兆线速家庭光纤与 Homelab 极客内网，支持多 LAN 独立划分与 VLAN 隔离。',
   },
   {
     label: '内存与存储架构',
@@ -233,7 +233,7 @@ export interface ApplicationScenario {
 export const APPLICATION_SCENARIOS: ApplicationScenario[] = [
   {
     iconName: 'van',
-    title: '家庭智能网络 / 极客影音 / 游戏低延迟',
+    title: '极客家庭网络 / 游戏低延迟 / 影音推流',
     subtitle: '160MHz 频宽 · 弱网加速抗抖动',
     description:
       'AX3000 双频并发与 160MHz 大频宽带来超高无线吞吐，结合 xkcptun 弱网加速与 aw-bpf 智能流控，保障家庭 4K 影音推流与竞技游戏低延迟互不干扰。',
@@ -241,18 +241,18 @@ export const APPLICATION_SCENARIOS: ApplicationScenario[] = [
   },
   {
     iconName: 'coffee',
-    title: '智慧商业门店 / 咖啡厅 / 共享空间',
-    subtitle: '高并发认证 · 智能流控不抢网',
+    title: '极客工作室 / 创客空间 / 访客 Portal 准入',
+    subtitle: '高性能认证 · 智能流控不抢网',
     description:
-      '原生集成 OpenWrt 生态高性能网关 apfree-wifidog，单机瞬时高并发 302 Portal 认证达 361 req/s，配合 aw-bpf L7 DPI 调度保障门店收银与顾客体验互不干扰。',
-    highlights: '361 req/s 认证并发 · 千兆 PPE 线速 · 无线 Mesh',
+      '原生集成 OpenWrt 官方收录的高性能网关 apfree-wifidog，为极客工作室、创客沙龙与局域网访客提供高性能 Web 认证与网络隔离准入，单机瞬时并发达 361 req/s，配合 aw-bpf L7 DPI 调度保障关键网络体验。',
+    highlights: '361 req/s 认证并发 · 千兆 PPE 线速 · 访客隔离',
   },
   {
     iconName: 'factory',
-    title: '远程办公 / 私有云 NAS / 跨网穿透',
-    subtitle: '轻量穿透 · 全千兆高速内网',
+    title: 'Homelab 玩家 / 私有云 NAS / 远程穿透互联',
+    subtitle: '轻量穿透 · 5×千兆高速内网',
     description:
-      '基于合并入 OpenWrt 官方仓库的超轻量穿透服务 xfrpc，内存占用不足 2.2MB，轻松穿透无公网 IP 宽带，5 个全千兆网口提供稳定的 NAS 与工作站直连。',
+      '基于合并入 OpenWrt 官方仓库的超轻量穿透服务 xfrpc（内存常驻不足 2.2MB），轻松搞定无公网 IP 宽带环境下的内网穿透，5 个全千兆网口提供稳定的 NAS、工作站与开发板直连。',
     highlights: 'xfrpc 官方穿透 · 5×千兆电口 · 小茶一键调用',
   },
 ];
@@ -570,12 +570,12 @@ export interface FaqItem {
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    q: 'ClawWiFi M3000 v1 的硬件定位与核心规格是什么？',
-    a: 'ClawWiFi M3000 v1 是专为 chaWrt 智能系统深度定制的官方标杆级 Wi-Fi 6 AX3000 路由器：搭载联发科 MT7981B 双核 1.3GHz 处理器，标配 5 个全千兆网口与 160MHz 超大无线频宽，内置 256MB 内存与 128MB 高速闪存。它出厂深度适配并预装认证版 chaWrt 系统，原生打通小茶 AI 助手、MediaTek PPE 硬件全线速转发与三大 OpenWrt 官方收录套件。',
+    q: 'ClawWiFi M3000 v1 的目标人群与核心定位是什么？',
+    a: 'ClawWiFi M3000 v1 专为开源爱好者、玩机极客与 Homelab 玩家打造，是官方软硬件一体化的参考标杆硬件：搭载联发科 MT7981B 双核 1.3GHz 处理器，标配 5 个全千兆网口与 160MHz 超大无线频宽，内置 256MB 内存与 128MB 高速闪存。它出厂预装官方认证版 chaWrt 系统，原生打通小茶 AI 助手、MediaTek PPE 硬件线速转发与三大 OpenWrt 官方收录套件，既让玩家省去变砖救砖折腾、开箱即可体验完整软硬件闭环，又保留了纯正开放的 root 与玩机自定义空间。',
   },
   {
     q: '开源固件与官方硬件有什么区别？我该选通道 A 还是通道 B？',
-    a: '如果您希望免去折腾、开箱即用体验全套认证版 chaWrt 与小茶助手完整软硬件闭环，请选择通道 A「ClawWiFi M3000 v1 官方标杆硬件」并可获取技术群交流支持；如果您已有 360T7、H3C NX30 Pro、锐捷 X30E 或 Cudy WR3000 等 MT7981 路由器并喜欢动手刷机，通道 B 免费提供纯净 chaWrt 开源固件镜像。',
+    a: '两个通道均面向开源社区与极客玩家：如果您希望拥有一台出厂已刷好认证固件、免除折腾直接把玩 eBPF 与小茶 AI 助手的极客设备，请选择通道 A「ClawWiFi M3000 v1 官方玩家硬件」；如果您已有 360T7、H3C NX30 Pro、锐捷 X30E 或 Cudy WR3000 等 MT7981 设备并且喜欢自己动手刷机，通道 B 免费提供纯净 chaWrt 开源固件镜像供大家自由把玩。',
   },
   {
     q: '小茶助手在启用网络加速端口跳跃或修改防火墙时会导致路由器失联吗？',

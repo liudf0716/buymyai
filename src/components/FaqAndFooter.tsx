@@ -38,10 +38,10 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
           <div className="mb-10">
             <p className="text-xs font-mono text-[#00f2fe] mb-2">常见问题解答 · FAQ</p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-              硬件选型与规格指引，理清开箱即用与开源刷机边界
+              硬件选型与玩机指引，理清开箱即用与开源刷机边界
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed">
-              关于 ClawWiFi M3000 v1 标杆硬件规格、通道 A/B 选择以及 xfrpc / APK 3.x 架构的核心答疑。
+              关于 ClawWiFi M3000 v1 玩家硬件规格、通道 A/B 选择以及 xfrpc / APK 3.x 架构的核心答疑。
             </p>
           </div>
 
@@ -275,10 +275,10 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
             <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-5">
               <div>
                 <h3 id="community-modal-title" className="font-display text-base font-bold text-white">
-                  chaWrt 官方技术交流 QQ 群
+                  chaWrt 开源社区玩家技术交流群
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  M3000 v1 硬件交流 · 固件刷机答疑 · eBPF 技术探讨
+                  M3000 v1 玩家硬件交流 · 固件刷机答疑 · eBPF 技术探讨
                 </p>
               </div>
               <button

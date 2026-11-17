@@ -46,15 +46,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
           <div className="lg:col-span-6 flex flex-col justify-between gap-8">
             <div>
               <p className="text-xs font-mono text-[#00f2fe] tracking-wide mb-4">
-                {config.latestVersion} · Linux 6.12.116 LTS · Alpine APK 3.0.5 · 83 项实机测试 100% 通过
+                专为开源爱好者与玩机极客打造 · {config.latestVersion} · Linux 6.12 LTS · Alpine APK 3.x
               </p>
 
               <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-white tracking-tight leading-[1.18] mb-5">
-                AI-Native 智能路由器系统：以「小茶 AI 助手」为超级中枢，驱动四大自研网络服务
+                面向开源爱好者与玩家：以「小茶 AI 助手」为超级中枢，驱动四大自研网络服务
               </h1>
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-7">
-                chaWrt 开启 AI 路由器新时代：系统核心配置与流控全面由「小茶 AI 助手」统一自然语言调度。原生打通商业门户认证（<span className="font-mono text-slate-100">apfree-wifidog</span>）、超轻量内网穿透（<span className="font-mono text-slate-100">xfrpc</span>）、弱网加速（<span className="font-mono text-slate-100">xkcptun</span>，三者均已合并入 OpenWrt 官方软件源）与 TC-eBPF 智能分流（<span className="font-mono text-slate-100">xdns-bpf</span>），并交付官方标杆硬件{' '}
+                专为开源社区、网络极客与折腾玩家设计：系统核心配置与流控全面由「小茶 AI 助手」自然语言调度。原生打通高性能 Web 门户认证（<span className="font-mono text-slate-100">apfree-wifidog</span>）、超轻量内网穿透（<span className="font-mono text-slate-100">xfrpc</span>）、弱网加速（<span className="font-mono text-slate-100">xkcptun</span>，三者均已合并入 OpenWrt 官方软件源）与 TC-eBPF 智能分流（<span className="font-mono text-slate-100">xdns-bpf</span>），并交付开源玩家标杆硬件{' '}
                 <strong className="text-white font-semibold">ClawWiFi M3000 v1</strong> Wi-Fi 6 路由器。
               </p>
 
@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#00f2fe] hover:bg-sky-300 text-slate-950 text-xs sm:text-sm font-bold transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe]"
                 >
                   <ShieldCheck className="w-4 h-4" />
-                  <span>通道 A：M3000 v1 官方标杆硬件</span>
+                  <span>通道 A：M3000 v1 玩家标杆硬件（免折腾现货）</span>
                 </a>
                 <a
                   href="#downloads"
@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-purple-500/50 hover:border-purple-400 bg-[#111b2e]/90 hover:bg-slate-800/90 text-slate-100 text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
                 >
                   <Download className="w-4 h-4 text-[#00f2fe]" />
-                  <span>通道 B：免费下载开源固件</span>
+                  <span>通道 B：免费下载开源固件（动手刷机派）</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
@@ -261,14 +261,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
           <div className="p-6 flex flex-col justify-between gap-4">
             <div>
               <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-[#00f2fe] mb-1.5">
-                <span>通道 A · 官方标杆硬件</span>
-                <span className="text-slate-400">省心用户 · 商业门店 · 极客家庭网络</span>
+                <span>通道 A · 玩家官方标杆硬件</span>
+                <span className="text-slate-400">开源爱好者 · 极客玩家 · Homelab 探索者</span>
               </div>
               <h2 className="font-display text-lg font-bold text-white mb-1.5">
-                ClawWiFi M3000 v1 Wi-Fi 6 官方标杆路由器
+                ClawWiFi M3000 v1 Wi-Fi 6 开源玩家标杆路由器
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                基于联发科 MT7981B 双核 1.3GHz 平台打造的 Wi-Fi 6 AX3000 标杆路由器：标配 5 个全千兆网口与 160MHz 超大频宽，出厂深度适配并预装认证版 chaWrt 系统。MediaTek PPE 硬件加速跑满千兆线速（CPU 占用 &lt; 1%），享官方技术交流群答疑支持与持续固件维护。
+                基于联发科 MT7981B 双核 1.3GHz 平台打造的 Wi-Fi 6 AX3000 玩家标杆路由器：标配 5 个全千兆网口与 160MHz 超大频宽，出厂深度适配并预装认证版 chaWrt 系统。MediaTek PPE 硬件加速跑满千兆线速（CPU 占用 &lt; 1%），为开源玩家提供开箱即用的软硬件把玩与探索平台。
               </p>
             </div>
             <div className="pt-2">
