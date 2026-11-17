@@ -41,7 +41,7 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
               明确工业级定位，理清商业购买与开源边界
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed">
-              关于 ClawWiFi M3000 v1 5G 移动网关硬件规格、通道 A/B 选择以及 xfrpc / APK 3.x 架构的核心答疑。
+              关于 ClawWiFi M3000 v1 标杆硬件规格、通道 A/B 选择以及 xfrpc / APK 3.x 架构的核心答疑。
             </p>
           </div>
 
@@ -101,7 +101,7 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
                 <span>chaWrt &amp; ClawWiFi</span>
               </a>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
-                基于 Linux 6.12 LTS、内核级 eBPF 与 DeepSeek 小茶助手打造的下一代开源智能路由器系统，与 ClawWiFi M3000 v1 5G 工业级移动网关协同构建完整产品矩阵。
+                基于 Linux 6.12 LTS、内核级 eBPF 与 DeepSeek 小茶助手打造的下一代开源智能路由器系统，与 ClawWiFi M3000 v1 标杆硬件协同构建完整产品矩阵。
               </p>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-slate-400">
                 <a
@@ -154,7 +154,7 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
                     }}
                     className="hover:text-white transition-colors"
                   >
-                    M3000 v1 5G 工业网关
+                    ClawWiFi M3000 标杆硬件
                   </a>
                 </li>
                 <li>

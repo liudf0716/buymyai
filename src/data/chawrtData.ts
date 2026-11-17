@@ -57,8 +57,8 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
   },
   {
     dimension: '软件包与固件生态',
-    legacy: 'opkg 依赖地狱极易升级变砖；家用塑料外壳难以胜任车载与户外工况',
-    chawrt: 'Alpine APK 3.x 秒级原子事务更新 + M3000 v1 全金属宽温宽压 5G 工业移动网关',
+    legacy: 'opkg 依赖地狱极易升级变砖；配置繁杂缺乏统一智能交互',
+    chawrt: 'Alpine APK 3.x 秒级原子事务更新 + M3000 v1 官方标杆硬件原生深度适配',
   },
 ];
 
@@ -80,11 +80,11 @@ export const COPILOT_SCENARIOS: CopilotPromptScenario[] = [
     latencyLabel: 'get_temperature · 0.18s',
     actionSummary: '🟢 各芯片散热良好（CPU 67°C, 2.4G 50°C, 5G 50°C），运行稳定健康。',
     terminalOutput: `> call tool: get_temperature()
-[MT7981B SoC CPU]       67.0°C  (工业阈值 <= 105°C · 正常)
+[MT7981B SoC CPU]       67.0°C  (温控阈值 <= 105°C · 正常)
 [MT7976 2.4GHz RF]      50.0°C  (无线射频 · 低温稳定)
 [MT7976 5GHz RF]        50.0°C  (160MHz 满血运行 · 健康)
-CNC 全金属无风扇被动散热外壳导热正常，无需降频。`,
-    diagnosis: '实时读取 MediaTek MT7981B 核心与 MT7976 双频射频传感器，全负载工况下仍保持充裕散热冗余。',
+立体制冷风道被动散热良好，各芯片无积热降频。`,
+    diagnosis: '实时读取 MediaTek MT7981B 核心与 MT7976 双频射频传感器，长久负载工况下保持充裕散热冗余。',
   },
   {
     id: 'vps-wizard',
@@ -165,7 +165,7 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
     techStack: '纯 C 语言 · 非阻塞状态机 · OpenWrt 官方软件源',
     copilotCommand: '“小茶，帮我添加一条 5000 端口的 TCP 穿透映射到群晖 NAS，展示公网直达地址”',
     description:
-      '针对 4G/5G 蜂窝网络与无公网 IP 宽带环境，在嵌入式硬件上以不足 2.2MB 的极低内存开销实现坚如磐石的长连接穿透。代码质量经全球开源社区严苛审查，已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed），7×24 小时基站频繁切换不掉线。',
+      '针对复杂网络拓扑与无公网 IP 宽带环境，在嵌入式硬件上以不足 2.2MB 的极低内存开销实现坚如磐石的长连接穿透。代码质量经全球开源社区严苛审查，已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed），长时间稳定在线不掉线。',
     highlights: ['OpenWrt 官方 Packages Feed 官方收录', '内存常驻 < 2.2MB (Go版需 60MB+)', '毫秒级自动重连状态机'],
   },
   {
@@ -177,7 +177,7 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
     techStack: '纯 C 重构 KCP · OpenWrt 官方软件源 · 零内存泄漏',
     copilotCommand: '“小茶，切换网络加速端口，并预检远端 VPS 防火墙规则池放行状态”',
     description:
-      '专门解决蜂窝移动链路与长距离信道抖动带来的剧烈掉速。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，彻底杜绝切端口断网事故。',
+      '专门解决高延迟长距离与信道抖动带来的剧烈掉速。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，彻底杜绝切端口断网事故。',
     highlights: ['OpenWrt 官方 Packages Feed 官方收录', '抗 40% 恶劣高丢包环境', '动态 UDP 端口跳跃抗 QoS'],
   },
   {
@@ -189,36 +189,36 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
     techStack: 'Linux TC-eBPF · FNV-1a 首包哈希 · 内核态 Map 动态下刷',
     copilotCommand: '“小茶，查看出海链路实时分流统计，展示已接管连接数与累计转发流量”',
     description:
-      '当 4G/5G 蜂窝遭遇有线光纤，或国内与出海双宽带多出口调度时，基于纯 C 编写的 TC-eBPF 内核调度引擎与 FNV-1a 极速哈希决策树进行首包识别，动态将解析 IP 下刷至内核 eBPF Map，实现国内/海外双出口秒级精准导航，防污染无损零拷贝分流。',
+      '当多宽带与多出口策略调度时，基于纯 C 编写的 TC-eBPF 内核调度引擎与 FNV-1a 极速哈希决策树进行首包识别，动态将解析 IP 下刷至内核 eBPF Map，实现国内/海外双出口秒级精准导航，防污染无损零拷贝分流。',
     highlights: ['首包 FNV-1a 极速哈希决策', '内核 eBPF Map 动态热重载', '实机累计分流 1.2 亿字节 0 丢包'],
   },
 ];
 
 export const M3000_HARDWARE_SPECS: HardwareSpecItem[] = [
   {
-    label: '蜂窝网络通信 (5G + Dual SIM)',
-    spec: '高通 5G SA/NSA 双模模组 · 下行峰值 2.5Gbps',
-    detail: '向下兼容 4G LTE 全网通；支持双 SIM 卡自动热备与秒级故障转移（Dual SIM Redundancy），移动链路永不断线。',
+    label: '核心计算处理平台',
+    spec: 'MediaTek MT7981B 双核 A53 1.3GHz 处理器',
+    detail: '高能效双核 64 位架构，内置 MediaTek 专属硬件 PPE 网络加速引擎，全千兆 NAT 线速转发时 CPU 占用率小于 1%。',
   },
   {
-    label: '核心计算与 Wi-Fi 6 无线',
-    spec: 'MT7981B 双核 A53 1.3GHz · AX3000 双频并发',
-    detail: '512MB DDR4 + 128MB SPI-NAND；支持 160MHz 频宽、802.11k/v/r 快速无缝漫游与 802.11s 无线 Mesh 一键扩展。',
+    label: 'Wi-Fi 6 极速无线规格',
+    spec: 'AX3000 双频并发 · 160MHz 巨幅频宽',
+    detail: '2.4GHz (574Mbps) + 5GHz (2402Mbps) 高速并发；支持 802.11k/v/r 快速无缝漫游与 802.11s 无线 Mesh 一键组网扩展。',
   },
   {
-    label: '工业级 I/O 接口阵列',
-    spec: '5 × 千兆网口 · 2 × RS232 + 1 × RS485 · USB 3.0',
-    detail: '1 WAN + 4 LAN 全千兆电口，原生板载凤凰端子工业串口与现场总线，直连 PLC 与工业采集终端。',
+    label: '高速有线接口阵列',
+    spec: '5 × 全千兆以太网口 (1 WAN + 4 LAN)',
+    detail: '全千兆 RJ45 电口阵列，跑满千兆线速家庭光纤与企业局域网，支持多 LAN 独立划分与 VLAN 隔离。',
   },
   {
-    label: '严苛工况与宽温宽压标定',
-    spec: '-40°C ~ +80°C 工业宽温 · DC 12V ~ 65V 超宽压供电',
-    detail: '内置硬件 + 软件双看门狗（Dual Watchdog），轻松应对车载电瓶波动、机柜高温与极寒户外环境。',
+    label: '内存与存储架构',
+    spec: '256MB DDR 高速内存 + 128MB SPI-NAND 闪存',
+    detail: '充裕的系统运存配合轻量纯 C 架构与 Alpine APK 3.x，为小茶 AI 助手与三大核心自研服务预留充足常驻空间。',
   },
   {
-    label: '全金属机壳与静音被动散热',
-    spec: '130 × 80 × 33 mm CNC 铝合金一体化导热外壳',
-    detail: '加厚 CNC 铝合金防尘抗电磁干扰机壳，整机无风扇被动静音散热，7×24 小时满载运行稳定不降速。',
+    label: '散热设计与能效工况',
+    spec: '立体制冷被动散热风道 · 静音低功耗稳定运行',
+    detail: '机身精密散热鳍片配合大面积金属屏蔽导热罩，整机无风扇零噪音被动散热，长久满载运行稳定不积热。',
   },
 ];
 
@@ -233,15 +233,15 @@ export interface ApplicationScenario {
 export const APPLICATION_SCENARIOS: ApplicationScenario[] = [
   {
     iconName: 'van',
-    title: '移动办公 / 房车出行 / 户外直播',
-    subtitle: '插卡即用 · 高速弱网抗丢包',
+    title: '家庭智能网络 / 极客影音 / 游戏低延迟',
+    subtitle: '160MHz 频宽 · 弱网加速抗抖动',
     description:
-      '搭载高通 5G 双模与双卡热备，即便穿越基站边缘弱网区，依然依托 xkcptun 端口跳跃抗丢包与 AX3000 无线覆盖，保障户外 4K 推流与多端云办公流畅不断流。',
-    highlights: '5G 2.5Gbps · 双卡秒切 · DC 12-65V 车载直连',
+      'AX3000 双频并发与 160MHz 大频宽带来超高无线吞吐，结合 xkcptun 弱网加速与 aw-bpf 智能流控，保障家庭 4K 影音推流与竞技游戏低延迟互不干扰。',
+    highlights: 'AX3000 Wi-Fi 6 · 160MHz 频宽 · PPE 全速转发',
   },
   {
     iconName: 'coffee',
-    title: '智慧商业门店 / 咖啡厅',
+    title: '智慧商业门店 / 咖啡厅 / 共享空间',
     subtitle: '高并发认证 · 智能流控不抢网',
     description:
       '原生集成 OpenWrt 生态高性能网关 apfree-wifidog，单机瞬时高并发 302 Portal 认证达 361 req/s，配合 aw-bpf L7 DPI 调度保障门店收银与顾客体验互不干扰。',
@@ -249,11 +249,11 @@ export const APPLICATION_SCENARIOS: ApplicationScenario[] = [
   },
   {
     iconName: 'factory',
-    title: '工业物联 / 智慧站点 / 车载监控',
-    subtitle: '串口直连 PLC · 宽温宽压坚如磐石',
+    title: '远程办公 / 私有云 NAS / 跨网穿透',
+    subtitle: '轻量穿透 · 全千兆高速内网',
     description:
-      '配备 2×RS232 + 1×RS485 工业总线直连传感器与 PLC 控制器，配合合并入 OpenWrt 官方仓库的 xfrpc 实现超轻量加密穿透，在 -40°C ~ +80°C 无人值守现场稳定运行。',
-    highlights: 'RS232/RS485 总线 · xfrpc 穿透 · 双看门狗自愈',
+      '基于合并入 OpenWrt 官方仓库的超轻量穿透服务 xfrpc，内存占用不足 2.2MB，轻松穿透无公网 IP 宽带，5 个全千兆网口提供稳定的 NAS 与工作站直连。',
+    highlights: 'xfrpc 官方穿透 · 5×千兆电口 · 小茶一键调用',
   },
 ];
 
@@ -372,9 +372,9 @@ export const BENCHMARK_TESTS: BenchmarkTestItem[] = [
   {
     id: 'TC-12',
     suite: 'system',
-    name: 'M3000 v1 双 SIM 故障秒级转移与 -40°C~+80°C / DC 12-65V 老化',
-    metric: '1.4s 切换 · 83/83 PASS',
-    threshold: '<= 3.0s / 0 宕机',
+    name: 'M3000 v1 72小时极限负载与 160MHz Wi-Fi 吞吐稳定性',
+    metric: '0 崩溃 · 0 内存泄漏 (83/83 PASS)',
+    threshold: '100% 稳定运行',
     status: 'PASS',
   },
 ];
@@ -401,10 +401,10 @@ export interface FirmwareDevice {
 export const FIRMWARE_DEVICES: FirmwareDevice[] = [
   {
     id: 'clawwifi_m3000_v1',
-    name: 'ClawWiFi M3000 v1 (5G 工业网关)',
-    tierLabel: '官方旗舰硬件 · 83 项全自动回归验证通过 · 出厂预装支持 OTA',
-    soc: 'MediaTek MT7981B + 高通 5G SA/NSA + RS232/RS485',
-    flashRam: '512MB DDR4 + 128MB SPI-NAND · 双 SIM 卡槽',
+    name: 'ClawWiFi M3000 v1 (AX3000 标杆硬件)',
+    tierLabel: '官方标杆硬件 · 83 项全自动回归验证通过 · 出厂预装 chaWrt 25.12 LTS',
+    soc: 'MediaTek MT7981B (Filogic 820) 双核 A53 1.3GHz',
+    flashRam: '256MB DDR + 128MB SPI-NAND',
     version: 'chaWrt 25.12 LTS',
     releaseDate: '2026-11-16',
     kernel: 'Linux 6.12.116 LTS',
@@ -422,7 +422,7 @@ export const FIRMWARE_DEVICES: FirmwareDevice[] = [
         filename: 'chawrt-25.12-snapshot-r33384-23b6afeb63-mediatek-filogic-clawwifi_m3000-v1-squashfs-sysupgrade.bin',
         size: '19.0 MB',
         sha256: 'c4c4bc96c78619514493b888ff7cf877cc994b7a47ab8cc0f3833b8229135bfd',
-        note: '已运行 chaWrt 的 M3000 v1 可通过 LuCI 或命令行在线 OTA 保留配置升级',
+        note: '已运行 chaWrt 的 M3000 v1 可通过 LuCI 或命令行在线保留配置升级',
       },
     ],
   },
@@ -570,12 +570,12 @@ export interface FaqItem {
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    q: 'ClawWiFi M3000 v1 是一台普通家用 Wi-Fi 路由器吗？',
-    a: '不是！型号中的 M 代表 Mobile（移动与蜂窝网络）。ClawWiFi M3000 v1 是一台 CNC 全金属机壳（130×80×33mm）打造的 5G 工业级移动旗舰网关：内置高通 5G SA/NSA 模组与双 SIM 卡秒级热备，标配 5×千兆网口、2×RS232 + 1×RS485 工业总线、-40°C~+80°C 宽温及 DC 12V~65V 超宽压供电，专为房车移动办公、商业门店、车载与工业现场打造。',
+    q: 'ClawWiFi M3000 v1 的硬件定位与核心规格是什么？',
+    a: 'ClawWiFi M3000 v1 是专为 chaWrt 智能系统深度定制的官方标杆级 Wi-Fi 6 AX3000 路由器：搭载联发科 MT7981B 双核 1.3GHz 处理器，标配 5 个全千兆网口与 160MHz 超大无线频宽，内置 256MB 内存与 128MB 高速闪存。它出厂深度适配并预装认证版 chaWrt 系统，原生打通小茶 AI 助手、MediaTek PPE 硬件全线速转发与三大 OpenWrt 官方收录套件。',
   },
   {
     q: '开源固件与官方硬件有什么区别？我该选通道 A 还是通道 B？',
-    a: '如果您需要 5G 蜂窝双卡冗余、工业串口、全金属宽温无风扇散热，或者希望免折腾开箱即用并享有 1 年质保与终身 OTA，请选择通道 A「ClawWiFi M3000 v1 官方完全体」；如果您已有 360T7、H3C NX30 Pro、锐捷 X30E 或 Cudy WR3000 等 MT7981 路由器并喜欢动手刷机，通道 B 提供免费 chaWrt 开源固件镜像。',
+    a: '如果您希望免去折腾、开箱即用体验全套认证版 chaWrt 与小茶助手完整软硬件闭环，请选择通道 A「ClawWiFi M3000 v1 官方标杆硬件」并可获取技术群交流支持；如果您已有 360T7、H3C NX30 Pro、锐捷 X30E 或 Cudy WR3000 等 MT7981 路由器并喜欢动手刷机，通道 B 免费提供纯净 chaWrt 开源固件镜像。',
   },
   {
     q: '小茶助手在启用网络加速端口跳跃或修改防火墙时会导致路由器失联吗？',
@@ -586,8 +586,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     a: '传统 opkg 在升级内核模块或底层库时极易产生依赖断裂甚至变砖。chaWrt 25.12 全面采用 Alpine APK 3.x 原子事务包管理器，安装速度提升数倍且升级安全可回滚；自研核心套件 apfree-wifidog、xfrpc、xkcptun 均已通过全球开源社区严格审查正式合并入 OpenWrt 官方 Packages Feed。',
   },
   {
-    q: '为什么 ClawWiFi M3000 v1 的价格相比百元家用 Wi-Fi 6 路由器更高？',
-    a: '核心在于工控级高可靠选型与蜂窝通信成本：设备原生搭载高通 5G SA/NSA 全网通通信模组与双 SIM 卡硬件热备电路，配备 5×千兆以太网口与 2×RS232/1×RS485 工业串口总线；外壳采用加厚 CNC 铝合金一体式被动导热设计，通过 -40°C ~ +80°C 工业宽温严苛工况与 DC 12V ~ 65V 超宽压浪涌测试。它是一台能在车载、房车、无人站点与工业现场 7×24 小时不间断运行的工业移动网关，硬件成本与耐用度与普通塑料家用路由完全不在一个量级。',
+    q: '为什么选择 ClawWiFi M3000 v1 搭配 chaWrt 官方系统？',
+    a: '核心在于“软硬件深度咬合”的极致性能与开箱即用体验：相比传统普通改版固件，chaWrt 彻底打通了 MT7981B 的 MediaTek PPE 硬件 NAT 卸载（跑满千兆线速 CPU 占用 < 1%），并由小茶 AI 助手统一接管配置调度，原生集成 apfree-wifidog、xfrpc、xkcptun 三大 OpenWrt 官方收录套件，既稳定可靠又告别复杂的命令行配置门槛。',
   },
   {
     q: '如果我完全不会配置 VPS，小茶助手能帮我搞定网络加速与智能分流吗？',

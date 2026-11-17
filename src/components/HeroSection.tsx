@@ -54,8 +54,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
               </h1>
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-7">
-                chaWrt 开启 AI 路由器新时代：系统核心配置与流控全面由「小茶 AI 助手」统一自然语言调度。原生打通商业门户认证（<span className="font-mono text-slate-100">apfree-wifidog</span>）、超轻量内网穿透（<span className="font-mono text-slate-100">xfrpc</span>）、弱网加速（<span className="font-mono text-slate-100">xkcptun</span>，三者均已合并入 OpenWrt 官方软件源）与 TC-eBPF 智能分流（<span className="font-mono text-slate-100">xdns-bpf</span>），并交付全金属工业级{' '}
-                <strong className="text-white font-semibold">ClawWiFi M3000 v1</strong> 5G 移动旗舰网关。
+                chaWrt 开启 AI 路由器新时代：系统核心配置与流控全面由「小茶 AI 助手」统一自然语言调度。原生打通商业门户认证（<span className="font-mono text-slate-100">apfree-wifidog</span>）、超轻量内网穿透（<span className="font-mono text-slate-100">xfrpc</span>）、弱网加速（<span className="font-mono text-slate-100">xkcptun</span>，三者均已合并入 OpenWrt 官方软件源）与 TC-eBPF 智能分流（<span className="font-mono text-slate-100">xdns-bpf</span>），并交付官方标杆硬件{' '}
+                <strong className="text-white font-semibold">ClawWiFi M3000 v1</strong> Wi-Fi 6 路由器。
               </p>
 
               {/* Dual Channel CTAs */}
@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#00f2fe] hover:bg-sky-300 text-slate-950 text-xs sm:text-sm font-bold transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f2fe]"
                 >
                   <ShieldCheck className="w-4 h-4" />
-                  <span>通道 A：M3000 v1 5G 硬件完全体</span>
+                  <span>通道 A：M3000 v1 官方标杆硬件</span>
                 </a>
                 <a
                   href="#downloads"
@@ -130,19 +130,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
                 <span aria-hidden="true" className="text-slate-600">·</span>
                 <span className="text-[#00f2fe] font-medium">OpenWrt 官方收录三大套件</span>
                 <span aria-hidden="true" className="text-slate-600">·</span>
-                <span className="text-emerald-400 font-medium">高通 5G 双卡热备 + RS232/485</span>
+                <span className="text-emerald-400 font-medium">Wi-Fi 6 AX3000 · 5×千兆网口</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Industrial 5G Hardware Studio Stage + Interactive XiaoCha Copilot HUD */}
+          {/* Right Column: Hardware Studio Stage + Interactive XiaoCha Copilot HUD */}
           <div className="lg:col-span-6 flex flex-col bg-[#111b2e]/90 backdrop-blur-md border border-cyan-500/30 rounded-xl overflow-hidden shadow-[0_0_40px_-15px_rgba(0,242,254,0.2)]">
-            {/* Hardware Studio Cutout Image Stage (Preserves exact selector div:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)) */}
+            {/* Hardware Studio Cutout Image Stage */}
             <div className="relative h-56 sm:h-64 bg-white overflow-hidden border-b border-slate-800 flex items-center justify-center p-4">
               {!imageError ? (
                 <img
                   src={m3000HeroImg}
-                  alt="ClawWiFi M3000 v1 CNC 全金属 5G 工业级移动网关实拍图"
+                  alt="ClawWiFi M3000 v1 Wi-Fi 6 AX3000 标杆路由器实拍图"
                   referrerPolicy="no-referrer"
                   onError={() => setImageError(true)}
                   className="w-full h-full object-contain"
@@ -150,17 +150,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-900 to-[#0b1220] text-slate-400">
                   <Cpu className="w-10 h-10 text-[#00f2fe] mb-3" />
-                  <p className="text-sm font-semibold text-white">ClawWiFi M3000 v1 5G 工业移动网关</p>
-                  <p className="text-xs text-slate-400 mt-1">CNC 全金属外壳 · 双 SIM 5G · RS232/RS485</p>
+                  <p className="text-sm font-semibold text-white">ClawWiFi M3000 v1 标杆路由器</p>
+                  <p className="text-xs text-slate-400 mt-1">MT7981B 双核 · AX3000 Wi-Fi 6 · 5×千兆网口</p>
                 </div>
               )}
 
               {/* Subtle Top-Left & Bottom-Right Hardware Spec Overlays */}
               <div className="absolute top-2.5 left-3 px-2.5 py-1 rounded bg-slate-950/85 backdrop-blur-sm text-[11px] font-mono text-[#00f2fe] border border-slate-800">
-                ClawWiFi M3000 v1 · 5G 工业移动网关
+                ClawWiFi M3000 v1 · 官方标杆硬件
               </div>
               <div className="absolute bottom-2.5 right-3 px-2.5 py-1 rounded bg-slate-950/85 backdrop-blur-sm text-[10px] font-mono text-slate-200 border border-slate-800">
-                -40°C~+80°C · DC 12-65V · RS232/RS485
+                MT7981B · 160MHz 频宽 · PPE 全速转发
               </div>
             </div>
 
@@ -261,14 +261,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
           <div className="p-6 flex flex-col justify-between gap-4">
             <div>
               <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-[#00f2fe] mb-1.5">
-                <span>通道 A · 官方硬件完全体</span>
-                <span className="text-slate-400">省心用户 · 商业门店 · 5G 移动与工业现场</span>
+                <span>通道 A · 官方标杆硬件</span>
+                <span className="text-slate-400">省心用户 · 商业门店 · 极客家庭网络</span>
               </div>
               <h2 className="font-display text-lg font-bold text-white mb-1.5">
-                ClawWiFi M3000 v1 5G 工业级移动旗舰网关
+                ClawWiFi M3000 v1 Wi-Fi 6 官方标杆路由器
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                M 代表 Mobile（移动蜂窝）。CNC 全金属无风扇机身（-40°C~+80°C / DC 12-65V），高通 5G 双 SIM 热备 + AX3000 + RS232/RS485。出厂预装认证版 chaWrt，享 1 年官方质保、终身 OTA 与 7×24 技术售后。
+                基于联发科 MT7981B 双核 1.3GHz 平台打造的 Wi-Fi 6 AX3000 标杆路由器：标配 5 个全千兆网口与 160MHz 超大频宽，出厂深度适配并预装认证版 chaWrt 系统。MediaTek PPE 硬件加速跑满千兆线速（CPU 占用 &lt; 1%），享官方技术交流群答疑支持与持续固件维护。
               </p>
             </div>
             <div className="pt-2">
@@ -280,7 +280,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config, onScrollTo, on
                 }}
                 className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#00f2fe] hover:underline"
               >
-                <span>查看 M3000 v1 工业规格与实机图库</span>
+                <span>查看 M3000 v1 硬件规格与实机图库</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>

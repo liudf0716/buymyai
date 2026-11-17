@@ -45,10 +45,10 @@ interface GalleryTabItem {
 
 const GALLERY_TABS: GalleryTabItem[] = [
   { id: 'video', label: '展机实录', tag: '3D 旋转' },
-  { id: 'front', label: '正面外观', tag: '状态灯与串口' },
-  { id: 'ports', label: '接口背板', tag: '5×千兆+天线' },
-  { id: 'side', label: '5G 双 SIM', tag: '双卡热备' },
-  { id: 'iso', label: '3D 轴测', tag: '130×80mm' },
+  { id: 'front', label: '正面外观', tag: '状态指示灯' },
+  { id: 'ports', label: '接口背板', tag: '5×千兆电口' },
+  { id: 'side', label: '侧面构造', tag: '外壳风道' },
+  { id: 'iso', label: '3D 轴测', tag: '立体视角' },
   { id: 'inner', label: '主板拆解', tag: 'PCB 实拍' },
 ];
 
@@ -64,52 +64,52 @@ interface GalleryPhotoItem {
 const REAL_HARDWARE_PHOTOS: GalleryPhotoItem[] = [
   {
     id: 'front',
-    title: '正面全金属机壳与工业端子/状态灯阵列',
-    subtitle: '加厚 CNC 铝合金导热机身 · RS232/RS485 凤凰端子与状态灯',
+    title: '正面外观与系统状态灯阵列',
+    subtitle: '流线散热机身 · LAN0-3 / WAN / Wi-Fi 指示灯',
     src: m3000FrontImg,
     description:
-      '采用一体化加厚 CNC 铝合金外壳，正面直观排布 LAN0-3、WAN、5G 蜂窝、2.4G/5G Wi-Fi 状态指示灯，以及工业级 I/O 接线端子与 +12V~65V 宽压接口。',
+      '正面整齐排布系统运行、WAN 网口、LAN0-3 局域网口以及 2.4G/5G Wi-Fi 双频运行状态指示灯，网络运行状态一目了然。',
   },
   {
     id: 'ports',
-    title: '5×全千兆网口 + 5 根高增益全向天线阵列',
-    subtitle: '1 WAN + 4 LAN · USB 3.0 · 镀金 SMA 射频接口',
+    title: '5×全千兆以太网口与外置天线阵列',
+    subtitle: '1 WAN + 4 LAN 全千兆 · USB 接口 · 高增益无线天线',
     src: m3000PortsImg,
     description:
-      '背板标配 5 个全千兆以太网电口（1 WAN + 4 LAN）、USB 3.0 高速接口、RESET 复位键以及 5 根高增益外置全向射频天线，保障 5G 蜂窝与 AX3000 无线穿墙覆盖。',
+      '背板标配 5 个全千兆以太网 RJ45 电口（1 WAN + 4 LAN），跑满家庭千兆宽带与企业内网；搭配外置高增益 Wi-Fi 6 射频天线，保障全屋穿墙覆盖。',
   },
   {
     id: 'iso',
-    title: '3D 轴测整机与侧面双 SIM 卡槽特写',
-    subtitle: 'SIM1 + SIM2 双卡双待毫秒级热备 · 130 × 80 × 33 mm',
+    title: '3D 轴测立体机身视角',
+    subtitle: '沉稳科技质感 · 紧凑桌面设计',
     src: m3000IsoImg,
     description:
-      '侧面清晰可见 SIM1 与 SIM2 双卡槽位及 5G 天线扩展孔位，支持双运营商自动热备与秒级故障切换；整机无风扇被动散热，紧凑坚固。',
+      '整机小巧紧凑，兼顾桌面摆放美观与高效风道对流散热，长久满载运行稳定不积热。',
   },
   {
     id: 'angle',
-    title: '正面斜切工业视角与面板丝印细节',
-    subtitle: '沉稳工控金属质感 · 防尘抗震防静电',
+    title: '正面斜切视角与面板细节',
+    subtitle: '细致工艺做工 · 散热阻燃防尘',
     src: m3000FrontAngleImg,
     description:
-      '全金属机身边缘精密折弯与防氧化喷砂工艺，内置防浪涌与 ESD 静电保护电路，从容应对车载电瓶点火瞬态波动与户外无人站点严苛环境。',
+      '外壳采用阻燃耐磨材质与精密结构设计，内置防浪涌与静电保护，从容应对各类复杂家庭与商用网络环境。',
   },
   {
     id: 'side',
-    title: '侧面散热孔阵列与镀金 SMA 天线底座',
-    subtitle: '无风扇对流散热 · 外置车载吸盘天线可扩展',
+    title: '侧面散热孔风道阵列',
+    subtitle: '对流立体散热 · 静音无风扇',
     src: m3000SideImg,
     description:
-      '机身两侧设有精密蜂窝散热孔阵列，配合铝合金外壳导热，在 -40°C ~ +80°C 工业宽温下长期满载不降频；标准 SMA 接口可随时替换车载吸盘天线。',
+      '机身侧边设计有精密对流散热格栅，配合内部大面积金属导热板，长久满载稳定不降速。',
   },
   {
     id: 'inner',
-    title: '内部核心沉金主板 PCB 高清实拍',
-    subtitle: 'MediaTek MT7981B + MT7976CN + NANYA DDR4 + 固态电容',
+    title: '内部核心沉金主板 PCB 实拍',
+    subtitle: 'MediaTek MT7981B + MT7976C + DDR 内存 + 固态电容',
     src: m3000InnerImg,
     isDarkStage: true,
     description:
-      '拆机可见高集成度工业级绿色沉金 PCB，核心搭載 MediaTek MT7981BA 处理器、MT7976CN 双频 Wi-Fi 6 射频芯片、南亚 DDR4 内存与高品质钽电容/电感阵列。',
+      '拆机可见高集成度沉金 PCB，核心搭载 MediaTek MT7981B 处理器、MT7976C 双频 Wi-Fi 6 射频芯片、高品质高速内存与固态电容电感阵列。',
   },
 ];
 
@@ -161,19 +161,19 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="max-w-3xl">
             <p className="text-xs font-mono text-[#00f2fe] mb-2">
-              通道 A · 官方 5G 工业级移动旗舰网关 · ClawWiFi M3000 v1 (M = Mobile)
+              通道 A · 官方标杆硬件 · ClawWiFi M3000 v1
             </p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-              全金属工控级 5G/4G + Wi-Fi 6 移动网关，绝非普通家用塑料路由
+              Wi-Fi 6 AX3000 标杆硬件，深度释放 chaWrt 全部性能潜能
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed">
-              专为房车移动办公、商业门店、车载与无人值守工业现场锻造：高通 5G 双模 + 双 SIM 秒级热备、5×千兆 + 2×RS232 + 1×RS485 总线、-40°C ~ +80°C 宽温及 DC 12V ~ 65V 宽压供电，出厂预装 83 项实测认证版 chaWrt。
+              专为追求极致网络体验的家庭、极客与商业门店打造：MediaTek MT7981B 双核 1.3GHz、5×全千兆以太网口、AX3000 双频并发与 160MHz 巨幅频宽，出厂预装官方实测认证版 chaWrt。
             </p>
           </div>
           <div className="text-xs font-mono text-slate-400 shrink-0 tabular-nums">
-            <span>CNC 全铝合金无风扇</span>
+            <span>MT7981B 双核 1.3GHz</span>
             <span className="mx-2 text-slate-600">·</span>
-            <span className="text-emerald-400 font-semibold">130 × 80 × 33 mm</span>
+            <span className="text-emerald-400 font-semibold">Wi-Fi 6 AX3000</span>
           </div>
         </div>
 
@@ -210,7 +210,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                   <img
                     key={galleryView}
                     src={getImageSrc(galleryView)}
-                    alt={`ClawWiFi M3000 v1 5G 工业级移动网关 - ${currentTab?.label}`}
+                    alt={`ClawWiFi M3000 v1 标杆硬件 - ${currentTab?.label}`}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                   />
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-slate-950/85 backdrop-blur-sm border border-slate-800 text-[11px] font-mono text-[#00f2fe]">
@@ -249,7 +249,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                 })}
               </div>
               <div className="mt-3 pt-2.5 border-t border-slate-800/60 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-400 px-1">
-                <span>高通 5G 双卡热备 · 5×千兆 · 2×RS232 + 1×RS485</span>
+                <span>MT7981B 双核 · 5×千兆网口 · AX3000 160MHz</span>
                 <span className="text-[#00f2fe]">当前视角：{currentTab?.label}</span>
               </div>
             </div>
@@ -260,10 +260,10 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
             <div className="space-y-4">
               <div>
                 <h3 className="font-display text-xl font-bold text-white mb-1">
-                  工业级硬件规格参数矩阵 (Hardware Specs)
+                  标杆硬件规格参数矩阵 (Hardware Specs)
                 </h3>
                 <p className="text-xs text-slate-400">
-                  工控级元器件选型与全金属结构，确保严苛环境下 7×24 小时高可靠连通
+                  优质元器件选型与高效散热风道设计，确保长久运行高可靠连通
                 </p>
               </div>
 
@@ -285,10 +285,10 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
               <div className="bg-[#0b1220] border border-emerald-500/25 rounded-lg p-3.5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-1">
                   <ShieldCheck className="w-4 h-4 shrink-0" />
-                  <span>通道 A · 官方硬件购买保障与终身 OTA 权益</span>
+                  <span>通道 A · 官方标杆硬件与社区技术支持</span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  出厂预装官方认证 chaWrt 25.12 LTS · 1 年官方硬件质保 · 终身在线 OTA 更新 · 7×24 专属技术售后（QQ 群 {config.qqGroup}）。
+                  出厂预装官方深度适配 chaWrt 25.12 LTS · 享官方技术交流 QQ 群（群号 {config.qqGroup}）技术交流与持续固件升级维护。
                 </p>
               </div>
             </div>
@@ -385,8 +385,8 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
           <div className="p-4 sm:p-5 bg-[#0d1525] border-t border-slate-800 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-3 font-mono">
             <span>
               {activeVideo === 'commercial'
-                ? '正在播放：ClawWiFi M3000 v1 旗舰工业外观、5G 蜂窝双卡、RS232/485 现场总线与核心特性全景演示'
-                : '正在播放：ClawWiFi M3000 v1 全金属外壳 360° 真实 3D 细节旋转展示'}
+                ? '正在播放：ClawWiFi M3000 v1 标杆外观、5×千兆网口与 Wi-Fi 6 核心特性演示'
+                : '正在播放：ClawWiFi M3000 v1 机身 360° 真实 3D 细节旋转展示'}
             </span>
             <span className="text-emerald-400 font-semibold">1080P Full HD · 真实实机拍摄</span>
           </div>
@@ -398,10 +398,10 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
             <div>
               <p className="text-xs font-mono text-[#00f2fe] mb-1 flex items-center gap-1.5">
                 <Camera className="w-3.5 h-3.5" />
-                <span>实拍真机画廊 · 工控做工与内部主板拆解细节</span>
+                <span>实拍真机画廊 · 做工与内部主板拆解细节</span>
               </p>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-                ClawWiFi M3000 v1 工业级工控实拍全景图库
+                ClawWiFi M3000 v1 实拍全景图库
               </h3>
             </div>
             <span className="text-xs text-slate-400 font-mono">
@@ -566,11 +566,11 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                   id="hardware-order-title"
                   className="font-display text-lg font-bold text-white flex items-center gap-2"
                 >
-                  <span>ClawWiFi M3000 v1 选购与定制咨询</span>
-                  <span className="text-xs font-mono text-emerald-400">· 现货发售</span>
+                  <span>ClawWiFi M3000 v1 标杆硬件咨询</span>
+                  <span className="text-xs font-mono text-emerald-400">· 交流答疑</span>
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">
-                  高通 5G SA/NSA 双卡双待 · 5×千兆 + RS232/RS485 · 1 年质保 + 终身 OTA
+                  MT7981B 双核 · Wi-Fi 6 AX3000 · 5×全千兆网口 · 预装认证版 chaWrt
                 </p>
               </div>
               <button

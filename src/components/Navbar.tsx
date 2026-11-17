@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { id: 'comparison', label: '架构对比' },
   { id: 'copilot-core', label: '小茶 AI 助手' },
   { id: 'services', label: '四大核心服务' },
-  { id: 'hardware', label: 'M3000 5G 网关' },
+  { id: 'hardware', label: 'M3000 标杆硬件' },
   { id: 'benchmarks', label: '83项测试报告' },
   { id: 'downloads', label: '固件下载' },
   { id: 'docs', label: '知识库' },
