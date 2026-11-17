@@ -1,6 +1,6 @@
 {
   "name": "chaWrt 开源智能路由系统 & ClawWiFi M3000 v1 官方平台",
-  "description": "chaWrt 官方站点：首创融合「小茶 AI 助手」与「内核级 eBPF 流控」的下一代开源智能路由系统。深度打通 OpenWrt 官方收录三大套件 (apfree-wifidog / xfrpc / xkcptun) 与 MediaTek PPE 硬件全线速转发；提供纯净开源固件下载，并官方发布原生适配标杆硬件 ClawWiFi M3000 v1（Wi-Fi 6 AX3000 · 5×千兆）。",
+  "description": "chaWrt 官方站点：融合「小茶 AI 助手」与「内核级 eBPF 流控」的下一代开源智能路由系统。深度打通 OpenWrt 官方收录三大套件 (apfree-wifidog / xfrpc / xkcptun) 与 MediaTek PPE 硬件全线速转发；提供纯净开源固件下载，并发布原生适配标杆硬件 ClawWiFi M3000 v1（Wi-Fi 6 AX3000 · 5×千兆）。",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

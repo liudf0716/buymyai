@@ -318,7 +318,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                 className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg border border-purple-500/50 hover:border-purple-400 bg-[#0b1220] hover:bg-slate-800 text-slate-100 text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
-                <span>企业批量采购与开票</span>
+                <span>技术交流与咨询答疑</span>
               </button>
             </div>
           </div>
@@ -333,10 +333,10 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
             <div>
               <p className="text-xs font-mono text-[#00f2fe] mb-1 flex items-center gap-1.5">
                 <Video className="w-3.5 h-3.5" />
-                <span>官方硬件实机宣传大片 · 工业全景解析视频</span>
+                <span>官方硬件实机展示 · 3D 全景解析视频</span>
               </p>
               <h3 className="font-display text-lg sm:text-xl font-bold text-white">
-                ClawWiFi M3000 v1 官方实景宣传大片与 3D 展机演示
+                ClawWiFi M3000 v1 官方实景展示与 3D 展机演示
               </h3>
             </div>
             <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-slate-800 shrink-0 self-start sm:self-auto">
@@ -349,7 +349,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                官方商业宣传大片
+                官方外观实拍展示
               </button>
               <button
                 type="button"
@@ -452,7 +452,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
         {/* Part 4: 3 Real-World Application Scenario Cards */}
         <div>
           <p className="text-xs font-mono text-slate-400 mb-4">
-            三大典型落地应用场景 · 从移动出行到工业无人值守现场
+            三大典型落地应用场景 · 覆盖家庭网络、商业门店与远程办公
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {APPLICATION_SCENARIOS.map((sc) => (
@@ -595,12 +595,12 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
                 </div>
                 <div className="space-y-2 flex-1">
                   <p className="text-xs font-semibold text-white">
-                    官方直通技术交流与售后服务群
+                    官方直通技术交流与答疑群
                   </p>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     群号：<strong className="font-mono text-[#00f2fe]">{config.qqGroup}</strong>
                     <br />
-                    入群可直联核心作者，获取 M3000 v1 专属购买折扣、企业增票采购清单与 xfrpc 穿透预配置协助。
+                    入群可直联核心开发者，交流硬件使用体验、获取固件更新通知与套件配置协助。
                   </p>
                   <button
                     type="button"
@@ -642,7 +642,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({ config, onCo
               </div>
 
               <div className="text-[11px] text-slate-400 text-center leading-relaxed">
-                支持开具增值税专用发票 · 批量 10 台以上支持企业 Portal 认证界面与专属 VPN 预烧录定制
+                出厂预装认证版系统 · 开箱即用 · 欢迎技术交流、刷机探讨与社区开发者反馈
               </div>
             </div>
           </div>

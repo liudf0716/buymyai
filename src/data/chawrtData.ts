@@ -83,7 +83,7 @@ export const COPILOT_SCENARIOS: CopilotPromptScenario[] = [
 [MT7981B SoC CPU]       67.0°C  (温控阈值 <= 105°C · 正常)
 [MT7976 2.4GHz RF]      50.0°C  (无线射频 · 低温稳定)
 [MT7976 5GHz RF]        50.0°C  (160MHz 满血运行 · 健康)
-立体制冷风道被动散热良好，各芯片无积热降频。`,
+立体对流通风被动散热良好，各芯片无积热降频。`,
     diagnosis: '实时读取 MediaTek MT7981B 核心与 MT7976 双频射频传感器，长久负载工况下保持充裕散热冗余。',
   },
   {
@@ -94,9 +94,9 @@ export const COPILOT_SCENARIOS: CopilotPromptScenario[] = [
     actionSummary: '已完成免密 SSH 公钥分发、xkcptun 服务端部署及 REDIRECT 端口池防失联预检。',
     terminalOutput: `> ssh-keygen ed25519 -> 免密鉴权公钥已注入远端 VPS (45.xx.xx.12)
 > deploy xkcptun-server + nftables REDIRECT pool [20000-29999 -> 4000]
-> [防失联安全预检] 校验服务端防火墙规则池: 100% 放行通过 (无阻断风险)
-> aw-bpf/xdns-bpf 联动: FNV-1a 零拷贝分流已累计转发 124.8 MB (0 丢包)`,
-    diagnosis: '小茶助手自动化完成路由器与 VPS 双端联调，并在启用 UDP 动态端口跳跃前自动验证服务端防火墙放行，彻底杜绝断连。',
+> [防失联安全预检] 校验服务端防火墙规则池: 放行校验通过 (规则池就绪)
+> aw-bpf/xdns-bpf 联动: FNV-1a 零拷贝分流已累计转发 124.8 MB (流表正常)`,
+    diagnosis: '小茶助手自动化完成路由器与 VPS 双端联调，并在启用 UDP 动态端口跳跃前自动验证服务端防火墙放行，有效降低失联风险。',
   },
   {
     id: 'security-audit',
@@ -165,7 +165,7 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
     techStack: '纯 C 语言 · 非阻塞状态机 · OpenWrt 官方软件源',
     copilotCommand: '“小茶，帮我添加一条 5000 端口的 TCP 穿透映射到群晖 NAS，展示公网直达地址”',
     description:
-      '针对复杂网络拓扑与无公网 IP 宽带环境，在嵌入式硬件上以不足 2.2MB 的极低内存开销实现坚如磐石的长连接穿透。代码质量经全球开源社区严苛审查，已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed），长时间稳定在线不掉线。',
+      '针对复杂网络拓扑与无公网 IP 宽带环境，在嵌入式硬件上以不足 2.2MB 的极低内存开销实现稳定可靠的长连接穿透。代码质量经全球开源社区严苛审查，已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed），长时间稳定在线不掉线。',
     highlights: ['OpenWrt 官方 Packages Feed 官方收录', '内存常驻 < 2.2MB (Go版需 60MB+)', '毫秒级自动重连状态机'],
   },
   {
@@ -177,7 +177,7 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
     techStack: '纯 C 重构 KCP · OpenWrt 官方软件源 · 零内存泄漏',
     copilotCommand: '“小茶，切换网络加速端口，并预检远端 VPS 防火墙规则池放行状态”',
     description:
-      '专门解决高延迟长距离与信道抖动带来的剧烈掉速。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，彻底杜绝切端口断网事故。',
+      '专门解决高延迟长距离与信道抖动带来的剧烈掉速。已正式合并入 OpenWrt 官方软件包源码库（Official Packages Feed）。内置自适应前向纠错（FEC）与动态 UDP 端口跳跃技术。核心突破在于：小茶助手在执行端口跳跃前，会自动预检远端 VPS 防火墙 REDIRECT 规则池的放行状态，避免因规则缺失导致断网失联。',
     highlights: ['OpenWrt 官方 Packages Feed 官方收录', '抗 40% 恶劣高丢包环境', '动态 UDP 端口跳跃抗 QoS'],
   },
   {
@@ -185,12 +185,12 @@ export const FOUR_CORE_SERVICES: CoreServiceItem[] = [
     title: '内核级 TC-eBPF 智能策略分流',
     serviceName: 'xdns-bpf (FNV-1a 极速哈希)',
     tag: 'TC-eBPF 零拷贝 · 毫秒级 Map 绑定',
-    metric: '累计分流超 1.2 亿字节 (120MB+) · 0 丢包',
+    metric: '实测分流验证 120MB+ · 连续零丢包',
     techStack: 'Linux TC-eBPF · FNV-1a 首包哈希 · 内核态 Map 动态下刷',
     copilotCommand: '“小茶，查看出海链路实时分流统计，展示已接管连接数与累计转发流量”',
     description:
       '当多宽带与多出口策略调度时，基于纯 C 编写的 TC-eBPF 内核调度引擎与 FNV-1a 极速哈希决策树进行首包识别，动态将解析 IP 下刷至内核 eBPF Map，实现国内/海外双出口秒级精准导航，防污染无损零拷贝分流。',
-    highlights: ['首包 FNV-1a 极速哈希决策', '内核 eBPF Map 动态热重载', '实机累计分流 1.2 亿字节 0 丢包'],
+    highlights: ['首包 FNV-1a 极速哈希决策', '内核 eBPF Map 动态热重载', '实机稳定分流 120MB+ 零丢包'],
   },
 ];
 
@@ -217,8 +217,8 @@ export const M3000_HARDWARE_SPECS: HardwareSpecItem[] = [
   },
   {
     label: '散热设计与能效工况',
-    spec: '立体制冷被动散热风道 · 静音低功耗稳定运行',
-    detail: '机身精密散热鳍片配合大面积金属屏蔽导热罩，整机无风扇零噪音被动散热，长久满载运行稳定不积热。',
+    spec: '多孔立体对流通风散热 · 静音低功耗稳定运行',
+    detail: '机身精密散热格栅配合内部金属屏蔽导热罩，整机无风扇零噪音被动散热，长久满载运行稳定不积热。',
   },
 ];
 
@@ -268,7 +268,7 @@ export const TEST_CATEGORIES: TestMetricCategory[] = [
   { id: 'ebpf', label: 'eBPF 分流与流控' },
   { id: 'portal', label: 'Portal & 穿透' },
   { id: 'ai', label: '小茶 Copilot' },
-  { id: 'system', label: 'APK 3.x & 工业工况' },
+  { id: 'system', label: 'APK 3.x & 系统稳定性' },
 ];
 
 export interface BenchmarkTestItem {
@@ -309,8 +309,8 @@ export const BENCHMARK_TESTS: BenchmarkTestItem[] = [
     id: 'TC-04',
     suite: 'ebpf',
     name: 'xdns-bpf 内核 FNV-1a 零拷贝累计分流压力测试',
-    metric: '120MB+ (0 丢包)',
-    threshold: '>= 100MB / 0 丢包',
+    metric: '120MB+ (零丢包)',
+    threshold: '>= 100MB / 连续无丢包',
     status: 'PASS',
   },
   {
@@ -341,16 +341,16 @@ export const BENCHMARK_TESTS: BenchmarkTestItem[] = [
     id: 'TC-08',
     suite: 'portal',
     name: 'OpenWrt 官方收录套件 (apfree-wifidog / xfrpc / xkcptun) 全功能与长连接稳定性',
-    metric: '100% 在线 (0 断链)',
-    threshold: '>= 99.9%',
+    metric: '72h 持续在线 (0 异常断链)',
+    threshold: '稳定无死锁',
     status: 'PASS',
   },
   {
     id: 'TC-09',
     suite: 'ai',
     name: '小茶 Copilot VPS 联调 + UDP 端口跳跃防火墙 REDIRECT 预检',
-    metric: '100% 防失联拦截',
-    threshold: '0 误配置失联',
+    metric: '未放行阻断拦截生效',
+    threshold: '规则不匹配即拦截',
     status: 'PASS',
   },
   {
@@ -373,8 +373,8 @@ export const BENCHMARK_TESTS: BenchmarkTestItem[] = [
     id: 'TC-12',
     suite: 'system',
     name: 'M3000 v1 72小时极限负载与 160MHz Wi-Fi 吞吐稳定性',
-    metric: '0 崩溃 · 0 内存泄漏 (83/83 PASS)',
-    threshold: '100% 稳定运行',
+    metric: '无崩溃 · 无异常泄漏 (83/83 PASS)',
+    threshold: '长久稳定运行',
     status: 'PASS',
   },
 ];
@@ -555,7 +555,7 @@ apk upgrade --available`,
       {
         heading: '2. 观测 MediaTek PPE 硬件流表与 xdns-bpf 遥测',
         description:
-          '通过内核 debugfs 与 aw-bpf 命令行可直接校验硬件直通流表（20+ 条实机常驻）以及 xdns-bpf 首包 FNV-1a 哈希累计转发字节数（120MB+ 零丢包）。',
+          '通过内核 debugfs 与 aw-bpf 命令行可直接校验硬件直通流表（20+ 条实机常驻）以及 xdns-bpf 首包 FNV-1a 哈希实机分流状态（120MB+ 零丢包持续转发）。',
         code: `cat /sys/kernel/debug/mtk_ppe/entries
 aw-bpf stats --xdns --live`,
       },

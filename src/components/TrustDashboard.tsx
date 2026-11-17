@@ -19,7 +19,7 @@ export const TrustDashboard: React.FC = () => {
               实机性能测试与开源背书 · Trust Dashboard
             </p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-              83 项工业级端到端全自动化实机回归测试（通过率 100%）
+              83 项端到端全自动化实机回归测试（全部通过）
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed">
               测试全链路覆盖内核 TC-eBPF 流控、L7 DPI 首包嗅探、MediaTek PPE 硬件直通、Portal 认证、AI Agent 沙箱与防失联回滚机制，每一次 Release 均基于真实硬件集群验收。
@@ -68,7 +68,7 @@ export const TrustDashboard: React.FC = () => {
               <span className="text-2xl font-bold text-[#00f2fe]">120MB+</span>
             </div>
             <p className="text-[11px] text-slate-400 font-sans mt-2">
-              累计安全分流超 1.2 亿字节 · FNV-1a 零丢包
+              实测稳定分流 120MB+ · FNV-1a 零丢包
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export const TrustDashboard: React.FC = () => {
         <div className="border border-slate-800 rounded-xl bg-[#111b2e]/65 overflow-hidden">
           <div className="p-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 bg-[#0b1220]">
             <span className="text-xs font-semibold text-white">
-              83 项工业级自动化回归测试代表用例明细（CI/CD）
+              83 项实机自动化回归测试代表用例明细（CI/CD）
             </span>
             <div className="flex flex-wrap gap-1 p-1 bg-slate-900 rounded-lg border border-slate-800">
               {TEST_CATEGORIES.map((cat) => (

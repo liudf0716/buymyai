@@ -64,15 +64,15 @@ export const TechFeaturesBento: React.FC<TechFeaturesBentoProps> = ({ onCopy }) 
               AI-Native 架构核心 · 系统的超级大脑与交互中枢
             </p>
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
-              以「小茶 AI 助手」为唯一智能中枢，彻底接管系统全生命周期运维
+              以「小茶 AI 助手」为核心交互中枢，简化系统全生命周期运维
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
               <strong className="text-white">
-                chaWrt 彻底颠覆了传统路由器上百个层级深奥菜单与高危命令行的老旧范式。
+                chaWrt 改变了传统路由器繁琐菜单与复杂命令行的管理门槛。
               </strong>{' '}
               系统所有自研服务配置、出海加速部署、内核流控微调与安全基线体检，
               <span className="text-[#00f2fe] font-semibold">
-                全部通过小茶助手自然语言一句话自动闭环实现
+                全部通过小茶助手自然语言一句话闭环实现
               </span>
               ，让网络配置从“专业工程师的苦差事”走向“自然语言吩咐即搞定”。
             </p>
@@ -123,11 +123,11 @@ export const TechFeaturesBento: React.FC<TechFeaturesBentoProps> = ({ onCopy }) 
                     </span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    开启 UDP 动态端口跳跃前，小茶自动预检服务器防火墙 REDIRECT 规则池是否全部放行，彻底杜绝切错端口断网。
+                    开启 UDP 动态端口跳跃前，小茶自动预检服务器防火墙 REDIRECT 规则池是否放行，避免因规则缺失导致断网失联。
                   </p>
                 </div>
                 <div className="pt-3 text-[11px] font-mono text-slate-400 border-t border-slate-800/80">
-                  服务端规则池预检 · 0 断连风险
+                  服务端规则池预检 · 降低断连风险
                 </div>
               </div>
 
@@ -473,7 +473,7 @@ export const TechFeaturesBento: React.FC<TechFeaturesBentoProps> = ({ onCopy }) 
                   <span className="text-xs font-mono text-purple-400">废除 opkg</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  彻底废除老旧脆弱的 opkg，原生采用 Alpine APK 3.x 软件源与独立 Feed 架构。实现秒级依赖图解析与原子事务安装升级，从根本上杜绝依赖冲突与升级变砖。
+                  全面采用 Alpine APK 3.x 现代包管理与独立 Feed 架构，取代传统的 opkg。实现秒级依赖图解析与原子事务安装升级，大幅降低依赖冲突与升级变砖风险。
                 </p>
               </div>
 

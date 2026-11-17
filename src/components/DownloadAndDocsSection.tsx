@@ -293,7 +293,7 @@ export const DownloadAndDocsSection: React.FC<DownloadAndDocsSectionProps> = ({
                 从三步刷机到小茶 AI 联调与 APK 3.x 实战指南
               </h2>
               <p className="text-sm text-slate-400 leading-relaxed">
-                面向 DIY 玩家与企业运维团队的标准化参考手册，涵盖刷机校验、VPS 自动化联调与内核态流表观测。
+                面向 DIY 玩家与网络爱好者的标准化参考手册，涵盖刷机校验、VPS 自动化联调与内核态流表观测。
               </p>
             </div>
 

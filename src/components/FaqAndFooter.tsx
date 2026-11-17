@@ -38,7 +38,7 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
           <div className="mb-10">
             <p className="text-xs font-mono text-[#00f2fe] mb-2">常见问题解答 · FAQ</p>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-              明确工业级定位，理清商业购买与开源边界
+              硬件选型与规格指引，理清开箱即用与开源刷机边界
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed">
               关于 ClawWiFi M3000 v1 标杆硬件规格、通道 A/B 选择以及 xfrpc / APK 3.x 架构的核心答疑。
@@ -278,7 +278,7 @@ export const FaqAndFooter: React.FC<FaqAndFooterProps> = ({
                   chaWrt 官方技术交流 QQ 群
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">
-                  M3000 v1 硬件售后 · 固件刷机答疑 · eBPF 技术交流
+                  M3000 v1 硬件交流 · 固件刷机答疑 · eBPF 技术探讨
                 </p>
               </div>
               <button
